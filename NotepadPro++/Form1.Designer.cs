@@ -127,6 +127,7 @@
             saveAsFileMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.S;
             saveAsFileMenuItem.Size = new Size(195, 22);
             saveAsFileMenuItem.Text = "Sa&ve As...";
+            saveAsFileMenuItem.Click += saveAsFileMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
