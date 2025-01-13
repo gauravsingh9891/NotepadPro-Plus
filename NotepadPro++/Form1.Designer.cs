@@ -37,7 +37,9 @@
             saveAsFileMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             printFileMenuItem = new ToolStripMenuItem();
-            toolStripSeparator2 = new ToolStripSeparator();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripSeparator6 = new ToolStripSeparator();
             exitFileMenuItem = new ToolStripMenuItem();
             editMenuItem = new ToolStripMenuItem();
             undoEditMenuItem = new ToolStripMenuItem();
@@ -67,6 +69,7 @@
             statusStrip1 = new StatusStrip();
             rtbTextArea = new RichTextBox();
             toolStrip1 = new ToolStrip();
+            saveFileDialog1 = new SaveFileDialog();
             menuStrip1.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
@@ -85,7 +88,7 @@
             // 
             // fileMenuItem
             // 
-            fileMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newFileMenuItem, openFileMenuItem, saveFileMenuItem, saveAsFileMenuItem, toolStripSeparator1, printFileMenuItem, toolStripSeparator2, exitFileMenuItem });
+            fileMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newFileMenuItem, openFileMenuItem, saveFileMenuItem, saveAsFileMenuItem, toolStripSeparator1, printFileMenuItem, toolStripMenuItem1, toolStripMenuItem2, toolStripSeparator6, exitFileMenuItem });
             fileMenuItem.Name = "fileMenuItem";
             fileMenuItem.Size = new Size(37, 20);
             fileMenuItem.Text = "&File";
@@ -96,7 +99,7 @@
             newFileMenuItem.Name = "newFileMenuItem";
             newFileMenuItem.ShortcutKeys = Keys.Control | Keys.N;
             newFileMenuItem.Size = new Size(195, 22);
-            newFileMenuItem.Text = "New";
+            newFileMenuItem.Text = "&New";
             // 
             // openFileMenuItem
             // 
@@ -104,7 +107,7 @@
             openFileMenuItem.Name = "openFileMenuItem";
             openFileMenuItem.ShortcutKeys = Keys.Control | Keys.O;
             openFileMenuItem.Size = new Size(195, 22);
-            openFileMenuItem.Text = "Open...";
+            openFileMenuItem.Text = "&Open...";
             // 
             // saveFileMenuItem
             // 
@@ -112,7 +115,7 @@
             saveFileMenuItem.Name = "saveFileMenuItem";
             saveFileMenuItem.ShortcutKeys = Keys.Control | Keys.S;
             saveFileMenuItem.Size = new Size(195, 22);
-            saveFileMenuItem.Text = "Save";
+            saveFileMenuItem.Text = "&Save";
             // 
             // saveAsFileMenuItem
             // 
@@ -120,7 +123,7 @@
             saveAsFileMenuItem.Name = "saveAsFileMenuItem";
             saveAsFileMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.S;
             saveAsFileMenuItem.Size = new Size(195, 22);
-            saveAsFileMenuItem.Text = "Save As...";
+            saveAsFileMenuItem.Text = "Sa&ve As...";
             // 
             // toolStripSeparator1
             // 
@@ -133,19 +136,33 @@
             printFileMenuItem.Name = "printFileMenuItem";
             printFileMenuItem.ShortcutKeys = Keys.Control | Keys.P;
             printFileMenuItem.Size = new Size(195, 22);
-            printFileMenuItem.Text = "Print...";
+            printFileMenuItem.Text = "P&rint...";
             // 
-            // toolStripSeparator2
+            // toolStripMenuItem1
             // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(192, 6);
+            toolStripMenuItem1.Image = Properties.Resources.document;
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(195, 22);
+            toolStripMenuItem1.Text = "&Print Preview";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Image = Properties.Resources.settings;
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(195, 22);
+            toolStripMenuItem2.Text = "Page Se&tup";
+            // 
+            // toolStripSeparator6
+            // 
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new Size(192, 6);
             // 
             // exitFileMenuItem
             // 
             exitFileMenuItem.Image = Properties.Resources.close;
             exitFileMenuItem.Name = "exitFileMenuItem";
             exitFileMenuItem.Size = new Size(195, 22);
-            exitFileMenuItem.Text = "Exit";
+            exitFileMenuItem.Text = "E&xit";
             // 
             // editMenuItem
             // 
@@ -160,7 +177,7 @@
             undoEditMenuItem.Name = "undoEditMenuItem";
             undoEditMenuItem.ShortcutKeys = Keys.Control | Keys.Z;
             undoEditMenuItem.Size = new Size(167, 22);
-            undoEditMenuItem.Text = "Undo";
+            undoEditMenuItem.Text = "&Undo";
             // 
             // redoRedoMenuItem
             // 
@@ -168,7 +185,7 @@
             redoRedoMenuItem.Name = "redoRedoMenuItem";
             redoRedoMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
             redoRedoMenuItem.Size = new Size(167, 22);
-            redoRedoMenuItem.Text = "Redo";
+            redoRedoMenuItem.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
@@ -181,7 +198,7 @@
             cutEditMenuItem.Name = "cutEditMenuItem";
             cutEditMenuItem.ShortcutKeys = Keys.Control | Keys.X;
             cutEditMenuItem.Size = new Size(167, 22);
-            cutEditMenuItem.Text = "Cut";
+            cutEditMenuItem.Text = "&Cut";
             // 
             // copyEditMenuItem
             // 
@@ -214,6 +231,7 @@
             // 
             // findEditMenuItem
             // 
+            findEditMenuItem.Image = Properties.Resources.find;
             findEditMenuItem.Name = "findEditMenuItem";
             findEditMenuItem.ShortcutKeys = Keys.Control | Keys.F;
             findEditMenuItem.Size = new Size(167, 22);
@@ -221,6 +239,7 @@
             // 
             // findNextEditMenuItem
             // 
+            findNextEditMenuItem.Image = Properties.Resources.FindNext;
             findNextEditMenuItem.Name = "findNextEditMenuItem";
             findNextEditMenuItem.ShortcutKeys = Keys.F3;
             findNextEditMenuItem.Size = new Size(167, 22);
@@ -228,6 +247,7 @@
             // 
             // replaceEditMenuItem
             // 
+            replaceEditMenuItem.Image = Properties.Resources.text_replace;
             replaceEditMenuItem.Name = "replaceEditMenuItem";
             replaceEditMenuItem.ShortcutKeys = Keys.Control | Keys.H;
             replaceEditMenuItem.Size = new Size(167, 22);
@@ -251,7 +271,7 @@
             selectAllEditMenuItem.Name = "selectAllEditMenuItem";
             selectAllEditMenuItem.ShortcutKeys = Keys.Control | Keys.A;
             selectAllEditMenuItem.Size = new Size(167, 22);
-            selectAllEditMenuItem.Text = "Select All";
+            selectAllEditMenuItem.Text = "Se&lect All";
             // 
             // timeDateEditMenuItem
             // 
@@ -354,6 +374,7 @@
             rtbTextArea.Dock = DockStyle.Fill;
             rtbTextArea.Location = new Point(0, 0);
             rtbTextArea.Name = "rtbTextArea";
+            rtbTextArea.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
             rtbTextArea.Size = new Size(946, 439);
             rtbTextArea.TabIndex = 0;
             rtbTextArea.Text = "";
@@ -410,7 +431,6 @@
         private ToolStripMenuItem exitFileMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem printFileMenuItem;
-        private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem undoEditMenuItem;
         private ToolStripMenuItem redoRedoMenuItem;
         private ToolStripMenuItem cutEditMenuItem;
@@ -431,5 +451,9 @@
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
+        private SaveFileDialog saveFileDialog1;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripSeparator toolStripSeparator6;
     }
 }
