@@ -100,6 +100,7 @@
             newFileMenuItem.ShortcutKeys = Keys.Control | Keys.N;
             newFileMenuItem.Size = new Size(195, 22);
             newFileMenuItem.Text = "&New";
+            newFileMenuItem.Click += newFileMenuItem_Click;
             // 
             // openFileMenuItem
             // 
@@ -163,6 +164,7 @@
             exitFileMenuItem.Name = "exitFileMenuItem";
             exitFileMenuItem.Size = new Size(195, 22);
             exitFileMenuItem.Text = "E&xit";
+            exitFileMenuItem.Click += exitFileMenuItem_Click;
             // 
             // editMenuItem
             // 
@@ -373,6 +375,7 @@
             // rtbTextArea
             // 
             rtbTextArea.Dock = DockStyle.Fill;
+            rtbTextArea.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtbTextArea.Location = new Point(0, 0);
             rtbTextArea.Name = "rtbTextArea";
             rtbTextArea.ScrollBars = RichTextBoxScrollBars.ForcedBoth;
