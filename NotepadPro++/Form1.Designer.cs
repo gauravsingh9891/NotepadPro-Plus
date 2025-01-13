@@ -119,6 +119,7 @@
             saveFileMenuItem.ShortcutKeys = Keys.Control | Keys.S;
             saveFileMenuItem.Size = new Size(195, 22);
             saveFileMenuItem.Text = "&Save";
+            saveFileMenuItem.Click += saveFileMenuItem_Click;
             // 
             // saveAsFileMenuItem
             // 
@@ -385,6 +386,7 @@
             rtbTextArea.Size = new Size(946, 439);
             rtbTextArea.TabIndex = 0;
             rtbTextArea.Text = "";
+            rtbTextArea.TextChanged += rtbTextArea_TextChanged;
             // 
             // toolStrip1
             // 
@@ -410,6 +412,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Notepad Pro++";
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
