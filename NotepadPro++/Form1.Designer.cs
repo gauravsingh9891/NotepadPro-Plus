@@ -37,8 +37,8 @@
             saveAsFileMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             printFileMenuItem = new ToolStripMenuItem();
-            toolStripMenuItem1 = new ToolStripMenuItem();
-            toolStripMenuItem2 = new ToolStripMenuItem();
+            PrintPreviewFileMenu = new ToolStripMenuItem();
+            PageSetupFileMenu = new ToolStripMenuItem();
             toolStripSeparator6 = new ToolStripSeparator();
             exitFileMenuItem = new ToolStripMenuItem();
             editMenuItem = new ToolStripMenuItem();
@@ -71,6 +71,10 @@
             toolStrip1 = new ToolStrip();
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
+            printDialog1 = new PrintDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            pageSetupDialog1 = new PageSetupDialog();
             menuStrip1.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
@@ -89,7 +93,7 @@
             // 
             // fileMenuItem
             // 
-            fileMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newFileMenuItem, openFileMenuItem, saveFileMenuItem, saveAsFileMenuItem, toolStripSeparator1, printFileMenuItem, toolStripMenuItem1, toolStripMenuItem2, toolStripSeparator6, exitFileMenuItem });
+            fileMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newFileMenuItem, openFileMenuItem, saveFileMenuItem, saveAsFileMenuItem, toolStripSeparator1, printFileMenuItem, PrintPreviewFileMenu, PageSetupFileMenu, toolStripSeparator6, exitFileMenuItem });
             fileMenuItem.Name = "fileMenuItem";
             fileMenuItem.Size = new Size(37, 20);
             fileMenuItem.Text = "&File";
@@ -142,20 +146,23 @@
             printFileMenuItem.ShortcutKeys = Keys.Control | Keys.P;
             printFileMenuItem.Size = new Size(195, 22);
             printFileMenuItem.Text = "P&rint...";
+            printFileMenuItem.Click += printFileMenuItem_Click;
             // 
-            // toolStripMenuItem1
+            // PrintPreviewFileMenu
             // 
-            toolStripMenuItem1.Image = Properties.Resources.document;
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(195, 22);
-            toolStripMenuItem1.Text = "&Print Preview";
+            PrintPreviewFileMenu.Image = Properties.Resources.document;
+            PrintPreviewFileMenu.Name = "PrintPreviewFileMenu";
+            PrintPreviewFileMenu.Size = new Size(195, 22);
+            PrintPreviewFileMenu.Text = "&Print Preview";
+            PrintPreviewFileMenu.Click += PrintPreviewFile_Click;
             // 
-            // toolStripMenuItem2
+            // PageSetupFileMenu
             // 
-            toolStripMenuItem2.Image = Properties.Resources.settings;
-            toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(195, 22);
-            toolStripMenuItem2.Text = "Page Se&tup";
+            PageSetupFileMenu.Image = Properties.Resources.settings;
+            PageSetupFileMenu.Name = "PageSetupFileMenu";
+            PageSetupFileMenu.Size = new Size(195, 22);
+            PageSetupFileMenu.Text = "Page Se&tup";
+            PageSetupFileMenu.Click += PageSetupFileMenu_Click;
             // 
             // toolStripSeparator6
             // 
@@ -400,6 +407,24 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // printDialog1
+            // 
+            printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -466,9 +491,13 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
         private SaveFileDialog saveFileDialog1;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem PrintPreviewFileMenu;
+        private ToolStripMenuItem PageSetupFileMenu;
         private ToolStripSeparator toolStripSeparator6;
         private OpenFileDialog openFileDialog1;
+        private PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
+        private PageSetupDialog pageSetupDialog1;
     }
 }

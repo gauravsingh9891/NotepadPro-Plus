@@ -24,16 +24,18 @@ namespace NotepadPro__
         {
             if (IsFileModified)
             {
-                DialogResult dr=MessageBox.Show("Do you want to save this file ?","File Save",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);   
-                switch(dr)
-                    {
-                        case DialogResult.Yes: SaveFileMenu();
-                            ClearScreen();
-                            break;
-                        case DialogResult.No: ClearScreen();
-                            break;
-                    } 
-                
+                DialogResult dr = MessageBox.Show("Do you want to save this file ?", "File Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        SaveFileMenu();
+                        ClearScreen();
+                        break;
+                    case DialogResult.No:
+                        ClearScreen();
+                        break;
+                }
+
             }
             ClearScreen();
         }
@@ -151,6 +153,42 @@ namespace NotepadPro__
             //if (CurrOpenFileName != Path.GetFileName(CurrOpenFileName))
             //    CurrOpenFileName = Path.GetFileName(CurrOpenFileName);
             //this.Text = "*" + CurrOpenFileName + "- Notepad Pro++";
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(rtbTextArea.Text, new Font("Arial", 12, FontStyle.Regular), SystemBrushes.WindowText, new Point(25, 25));
+        }
+
+        //Print feature of Menu Strip
+        private void printFileMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = printDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+
+        }
+
+        //Page Preview feature of Menu Strip
+        private void PrintPreviewFile_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        //Page Setup feature of Menu Strip
+        private void PageSetupFileMenu_Click(object sender, EventArgs e)
+        {
+            pageSetupDialog1.PrinterSettings = printDocument1.PrinterSettings;
+            pageSetupDialog1.PageSettings = printDocument1.DefaultPageSettings;
+            DialogResult dr = pageSetupDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                printDocument1.PrinterSettings = pageSetupDialog1.PrinterSettings;
+                printDocument1.DefaultPageSettings = pageSetupDialog1.PageSettings;
+            }
         }
     }
 }
