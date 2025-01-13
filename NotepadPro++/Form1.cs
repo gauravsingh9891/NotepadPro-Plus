@@ -27,5 +27,24 @@ namespace NotepadPro__
         {
             Application.Exit();
         }
+
+        //Open File feature of Menu Strip
+        private void openFileMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Text Files (*.txt)|*.txt|Rich Text Format (*.rtf)|*.rtf";
+            DialogResult dr=openFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                if(Path.GetExtension(openFileDialog1.FileName)==".txt")
+                {
+                    rtbTextArea.LoadFile(openFileDialog1.FileName,RichTextBoxStreamType.PlainText);
+                }    
+                else if(Path.GetExtension(openFileDialog1.FileName)==".rtf")
+                {
+                    rtbTextArea.LoadFile(openFileDialog1.FileName, RichTextBoxStreamType.RichText);
+                }
+                this.Text=Path.GetFileName(openFileDialog1.FileName)+" - Notepad Pro++";
+            }
+        }
     }
 }

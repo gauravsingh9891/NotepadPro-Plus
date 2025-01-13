@@ -70,6 +70,7 @@
             rtbTextArea = new RichTextBox();
             toolStrip1 = new ToolStrip();
             saveFileDialog1 = new SaveFileDialog();
+            openFileDialog1 = new OpenFileDialog();
             menuStrip1.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
@@ -109,6 +110,7 @@
             openFileMenuItem.ShortcutKeys = Keys.Control | Keys.O;
             openFileMenuItem.Size = new Size(195, 22);
             openFileMenuItem.Text = "&Open...";
+            openFileMenuItem.Click += openFileMenuItem_Click;
             // 
             // saveFileMenuItem
             // 
@@ -391,6 +393,10 @@
             toolStrip1.Size = new Size(111, 25);
             toolStrip1.TabIndex = 0;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -459,5 +465,6 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripSeparator toolStripSeparator6;
+        private OpenFileDialog openFileDialog1;
     }
 }
