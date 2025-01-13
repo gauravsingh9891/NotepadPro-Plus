@@ -338,6 +338,7 @@
             aboutNotepadMenuItem.Name = "aboutNotepadMenuItem";
             aboutNotepadMenuItem.Size = new Size(193, 22);
             aboutNotepadMenuItem.Text = "About Notepad Pro++";
+            aboutNotepadMenuItem.Click += aboutNotepadMenuItem_Click;
             // 
             // toolStripContainer1
             // 
