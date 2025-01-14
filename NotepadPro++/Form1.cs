@@ -322,20 +322,44 @@ namespace NotepadPro__
         private void fontFormatMenuItem_Click(object sender, EventArgs e)
         {
             fontDialog1.ShowColor = true;
+            fontDialog1.ShowApply = true;
             DialogResult dr = fontDialog1.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                if(rtbTextArea.SelectionLength>0)
+                if (rtbTextArea.SelectionLength > 0)
                 {
                     rtbTextArea.SelectionFont = fontDialog1.Font;
                     rtbTextArea.SelectionColor = fontDialog1.Color;
                 }
             }
+            else
+            {
+                rtbTextArea.SelectionFont = rtbTextArea.Font;
+                rtbTextArea.SelectionColor = rtbTextArea.ForeColor;
+            }
+        }
+        
+        //Implementing Apply option into Format Dialog of FormatMenu
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+            if (rtbTextArea.SelectionLength > 0)
+            {
+                rtbTextArea.SelectionFont = fontDialog1.Font;
+                rtbTextArea.SelectionColor = fontDialog1.Color;
+            }
         }
 
+        //ChangeTextColor Features of FormatMenu Strip
         private void changeTextColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            DialogResult dr = colorDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                if (rtbTextArea.SelectionLength > 0)
+                {
+                    rtbTextArea.SelectionColor = colorDialog1.Color;
+                }
+            }
         }
     }
 }
