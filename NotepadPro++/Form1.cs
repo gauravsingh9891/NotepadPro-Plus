@@ -184,9 +184,16 @@ namespace NotepadPro__
         //Page Preview feature of FileMenu Strip
         private void PrintPreviewFile_Click(object sender, EventArgs e)
         {
+            PreviewPrint();
+        }
+
+        private void PreviewPrint()
+        {
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
         }
+
+
 
         //Page Setup feature of FileMenu Strip
         private void PageSetupFileMenu_Click(object sender, EventArgs e)
@@ -338,7 +345,7 @@ namespace NotepadPro__
                 rtbTextArea.SelectionColor = rtbTextArea.ForeColor;
             }
         }
-        
+
         //Implementing Apply option into Format Dialog of FormatMenu
         private void fontDialog1_Apply(object sender, EventArgs e)
         {
@@ -360,6 +367,86 @@ namespace NotepadPro__
                     rtbTextArea.SelectionColor = colorDialog1.Color;
                 }
             }
+        }
+
+        private void newFileToolStrip_Click(object sender, EventArgs e)
+        {
+            newFileMenuItem.PerformClick();
+        }
+
+        private void openFileToolStrip_Click(object sender, EventArgs e)
+        {
+            openFileMenuItem.PerformClick();
+        }
+
+        private void saveToolStrip_Click(object sender, EventArgs e)
+        {
+            saveFileMenuItem.PerformClick();
+        }
+
+        private void saveAsToolStrip_Click(object sender, EventArgs e)
+        {
+            saveAsFileMenuItem.PerformClick();
+        }
+
+        private void printToolStrip_Click(object sender, EventArgs e)
+        {
+            printFileMenuItem.PerformClick();
+        }
+
+        private void printPreviewToolStrip_Click(object sender, EventArgs e)
+        {
+            PreviewPrint();
+        }
+
+        private void pageSetupToolStrip_Click(object sender, EventArgs e)
+        {
+            PageSetupFileMenu.PerformClick();
+        }
+
+        private void cutToolStrip_Click(object sender, EventArgs e)
+        {
+            cutEditMenuItem.PerformClick();
+        }
+
+        private void copyToolStrip_Click(object sender, EventArgs e)
+        {
+            copyEditMenuItem.PerformClick();
+        }
+
+        private void pasteToolStrip_Click(object sender, EventArgs e)
+        {
+            pasteEditMenuItem.PerformClick();
+        }
+
+        private void boldToolStrip_Click(object sender, EventArgs e)
+        {
+            boldToolStripMenuItem.PerformClick();
+        }
+
+        private void ItalicToolStrip_Click(object sender, EventArgs e)
+        {
+            italicToolStripMenuItem.PerformClick();
+        }
+
+        private void underlineToolStrip_Click(object sender, EventArgs e)
+        {
+            underlineToolStripMenuItem.PerformClick();
+        }
+
+        private void strikeToolStrip_Click(object sender, EventArgs e)
+        {
+            strikethroughToolStripMenuItem.PerformClick();
+        }
+
+        private void fontFormatToolStrip_Click(object sender, EventArgs e)
+        {
+            fontFormatMenuItem.PerformClick();
+        }
+
+        private void textColorToolStrip_Click(object sender, EventArgs e)
+        {
+            changeTextColorToolStripMenuItem.PerformClick();
         }
     }
 }
