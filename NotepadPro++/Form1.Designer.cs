@@ -186,31 +186,35 @@
             // 
             // undoEditMenuItem
             // 
+            undoEditMenuItem.Enabled = false;
             undoEditMenuItem.Image = Properties.Resources.arrow_undo;
             undoEditMenuItem.Name = "undoEditMenuItem";
             undoEditMenuItem.ShortcutKeys = Keys.Control | Keys.Z;
-            undoEditMenuItem.Size = new Size(167, 22);
+            undoEditMenuItem.Size = new Size(180, 22);
             undoEditMenuItem.Text = "&Undo";
+            undoEditMenuItem.Click += undoEditMenuItem_Click;
             // 
             // redoRedoMenuItem
             // 
+            redoRedoMenuItem.Enabled = false;
             redoRedoMenuItem.Image = Properties.Resources.arrow_redo;
             redoRedoMenuItem.Name = "redoRedoMenuItem";
             redoRedoMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
-            redoRedoMenuItem.Size = new Size(167, 22);
+            redoRedoMenuItem.Size = new Size(180, 22);
             redoRedoMenuItem.Text = "&Redo";
+            redoRedoMenuItem.Click += redoRedoMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(164, 6);
+            toolStripSeparator3.Size = new Size(177, 6);
             // 
             // cutEditMenuItem
             // 
             cutEditMenuItem.Image = Properties.Resources.cut;
             cutEditMenuItem.Name = "cutEditMenuItem";
             cutEditMenuItem.ShortcutKeys = Keys.Control | Keys.X;
-            cutEditMenuItem.Size = new Size(167, 22);
+            cutEditMenuItem.Size = new Size(180, 22);
             cutEditMenuItem.Text = "&Cut";
             // 
             // copyEditMenuItem
@@ -218,7 +222,7 @@
             copyEditMenuItem.Image = Properties.Resources.copy;
             copyEditMenuItem.Name = "copyEditMenuItem";
             copyEditMenuItem.ShortcutKeys = Keys.Control | Keys.C;
-            copyEditMenuItem.Size = new Size(167, 22);
+            copyEditMenuItem.Size = new Size(180, 22);
             copyEditMenuItem.Text = "Copy";
             // 
             // pasteEditMenuItem
@@ -226,7 +230,7 @@
             pasteEditMenuItem.Image = Properties.Resources.paste;
             pasteEditMenuItem.Name = "pasteEditMenuItem";
             pasteEditMenuItem.ShortcutKeys = Keys.Control | Keys.V;
-            pasteEditMenuItem.Size = new Size(167, 22);
+            pasteEditMenuItem.Size = new Size(180, 22);
             pasteEditMenuItem.Text = "Paste";
             // 
             // deleteEditMenuItem
@@ -234,20 +238,20 @@
             deleteEditMenuItem.Image = Properties.Resources.delete;
             deleteEditMenuItem.Name = "deleteEditMenuItem";
             deleteEditMenuItem.ShortcutKeys = Keys.Delete;
-            deleteEditMenuItem.Size = new Size(167, 22);
+            deleteEditMenuItem.Size = new Size(180, 22);
             deleteEditMenuItem.Text = "Delete";
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(164, 6);
+            toolStripSeparator4.Size = new Size(177, 6);
             // 
             // findEditMenuItem
             // 
             findEditMenuItem.Image = Properties.Resources.find;
             findEditMenuItem.Name = "findEditMenuItem";
             findEditMenuItem.ShortcutKeys = Keys.Control | Keys.F;
-            findEditMenuItem.Size = new Size(167, 22);
+            findEditMenuItem.Size = new Size(180, 22);
             findEditMenuItem.Text = "Find...";
             // 
             // findNextEditMenuItem
@@ -255,7 +259,7 @@
             findNextEditMenuItem.Image = Properties.Resources.FindNext;
             findNextEditMenuItem.Name = "findNextEditMenuItem";
             findNextEditMenuItem.ShortcutKeys = Keys.F3;
-            findNextEditMenuItem.Size = new Size(167, 22);
+            findNextEditMenuItem.Size = new Size(180, 22);
             findNextEditMenuItem.Text = "Find Next";
             // 
             // replaceEditMenuItem
@@ -263,27 +267,27 @@
             replaceEditMenuItem.Image = Properties.Resources.text_replace;
             replaceEditMenuItem.Name = "replaceEditMenuItem";
             replaceEditMenuItem.ShortcutKeys = Keys.Control | Keys.H;
-            replaceEditMenuItem.Size = new Size(167, 22);
+            replaceEditMenuItem.Size = new Size(180, 22);
             replaceEditMenuItem.Text = "Replace...";
             // 
             // goToEditMenuItem
             // 
             goToEditMenuItem.Name = "goToEditMenuItem";
             goToEditMenuItem.ShortcutKeys = Keys.Control | Keys.G;
-            goToEditMenuItem.Size = new Size(167, 22);
+            goToEditMenuItem.Size = new Size(180, 22);
             goToEditMenuItem.Text = "Go To...";
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(164, 6);
+            toolStripSeparator5.Size = new Size(177, 6);
             // 
             // selectAllEditMenuItem
             // 
             selectAllEditMenuItem.Image = Properties.Resources.Select_all;
             selectAllEditMenuItem.Name = "selectAllEditMenuItem";
             selectAllEditMenuItem.ShortcutKeys = Keys.Control | Keys.A;
-            selectAllEditMenuItem.Size = new Size(167, 22);
+            selectAllEditMenuItem.Size = new Size(180, 22);
             selectAllEditMenuItem.Text = "Se&lect All";
             // 
             // timeDateEditMenuItem
@@ -291,7 +295,7 @@
             timeDateEditMenuItem.Image = Properties.Resources.DateTime;
             timeDateEditMenuItem.Name = "timeDateEditMenuItem";
             timeDateEditMenuItem.ShortcutKeys = Keys.F5;
-            timeDateEditMenuItem.Size = new Size(167, 22);
+            timeDateEditMenuItem.Size = new Size(180, 22);
             timeDateEditMenuItem.Text = "Time/Date";
             // 
             // formatMenuItem

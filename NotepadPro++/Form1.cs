@@ -8,26 +8,26 @@ namespace NotepadPro__
 {
     public partial class Form1 : Form
     {
+        #region Fields
         private bool IsFileAlreadySaved;
         private bool IsFileModified;
         private string CurrOpenFileName;
         private int linesPrinted;
         private string[] lines;
+        #endregion
         public Form1()
         {
             InitializeComponent();
         }
-        /// Help Menu Strip
-        //About Notepad Pro++ of Help Menu
+
+        ///About Notepad Pro++ of Help Menu
         private void aboutNotepadMenuItem_Click(object sender, EventArgs e)
         {
             Form2 fb = new Form2();
             fb.ShowDialog();
         }
 
-
-        /// File Menu Strip <summary>
-        //New File feature of Menu Strip
+        ///New File feature of Menu Strip
         private void newFileMenuItem_Click(object sender, EventArgs e)
         {
             if (IsFileModified)
@@ -36,19 +36,19 @@ namespace NotepadPro__
                 switch (dr)
                 {
                     case DialogResult.Yes:
-                        SaveFileMenu();
+                        SaveFileMenu();  //Call SaveFileMenu Function
                         ClearScreen();
                         break;
                     case DialogResult.No:
                         ClearScreen();
                         break;
                 }
-
+                undoEditMenuItem.Enabled = false;
             }
             ClearScreen();
         }
 
-        //Exit Application feature of Menu Strip
+        ///Exit Application feature of Menu Strip
         private void exitFileMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -74,12 +74,15 @@ namespace NotepadPro__
                 IsFileAlreadySaved = true;
                 IsFileModified = false;
                 CurrOpenFileName = openFileDialog1.FileName;
+
+                undoEditMenuItem.Enabled = false;
             }
         }
 
         //Save As feature of Menu Strip
         private void saveAsFileMenuItem_Click(object sender, EventArgs e)
         {
+            //Call SaveFileMenu Code
             SaveAsFileMenu();
         }
 
@@ -111,6 +114,7 @@ namespace NotepadPro__
             SaveFileMenu();
         }
 
+        //Implementing: Save File Menu code
         private void SaveFileMenu()
         {
             if (IsFileAlreadySaved)
@@ -161,6 +165,8 @@ namespace NotepadPro__
             //if (CurrOpenFileName != Path.GetFileName(CurrOpenFileName))
             //    CurrOpenFileName = Path.GetFileName(CurrOpenFileName);
             //this.Text = "*" + CurrOpenFileName + "- Notepad Pro++";
+
+            undoEditMenuItem.Enabled = true;
         }
 
         //private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -239,6 +245,22 @@ namespace NotepadPro__
             {
                 lines[i++] = s.TrimEnd(trimParam);
             }
+        }
+
+        //Undo Feature of Menu Strip
+        private void undoEditMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbTextArea.Undo();
+            redoRedoMenuItem.Enabled = true;
+            undoEditMenuItem.Enabled = false;
+        }
+
+        //Redo Features of Menu Strip
+        private void redoRedoMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbTextArea.Redo();
+            undoEditMenuItem.Enabled = true;
+            redoRedoMenuItem.Enabled = false;
         }
     }
 }
