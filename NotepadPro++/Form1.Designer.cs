@@ -75,14 +75,6 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             pageSetupDialog1 = new PageSetupDialog();
-            changeTextColorToolStripMenuItem = new ToolStripMenuItem();
-            normalToolStripMenuItem = new ToolStripMenuItem();
-            boldToolStripMenuItem = new ToolStripMenuItem();
-            italicToolStripMenuItem = new ToolStripMenuItem();
-            underlineToolStripMenuItem = new ToolStripMenuItem();
-            strikethroughToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator2 = new ToolStripSeparator();
-            toolStripSeparator7 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
@@ -308,7 +300,7 @@
             // 
             // formatMenuItem
             // 
-            formatMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fontFormatMenuItem, changeTextColorToolStripMenuItem, toolStripSeparator2, normalToolStripMenuItem, boldToolStripMenuItem, italicToolStripMenuItem, underlineToolStripMenuItem, strikethroughToolStripMenuItem, toolStripSeparator7, wordWrapFormatMenuItem });
+            formatMenuItem.DropDownItems.AddRange(new ToolStripItem[] { wordWrapFormatMenuItem, fontFormatMenuItem });
             formatMenuItem.Name = "formatMenuItem";
             formatMenuItem.Size = new Size(57, 20);
             formatMenuItem.Text = "&Format";
@@ -318,15 +310,15 @@
             wordWrapFormatMenuItem.Checked = true;
             wordWrapFormatMenuItem.CheckState = CheckState.Checked;
             wordWrapFormatMenuItem.Name = "wordWrapFormatMenuItem";
-            wordWrapFormatMenuItem.Size = new Size(180, 22);
+            wordWrapFormatMenuItem.Size = new Size(134, 22);
             wordWrapFormatMenuItem.Text = "Word Wrap";
             // 
             // fontFormatMenuItem
             // 
-            fontFormatMenuItem.Image = Properties.Resources.font_size;
+            fontFormatMenuItem.Image = Properties.Resources.typography;
             fontFormatMenuItem.Name = "fontFormatMenuItem";
-            fontFormatMenuItem.Size = new Size(180, 22);
-            fontFormatMenuItem.Text = "&Font...";
+            fontFormatMenuItem.Size = new Size(134, 22);
+            fontFormatMenuItem.Text = "Font...";
             // 
             // viewMenuItem
             // 
@@ -439,57 +431,6 @@
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
-            // changeTextColorToolStripMenuItem
-            // 
-            changeTextColorToolStripMenuItem.Name = "changeTextColorToolStripMenuItem";
-            changeTextColorToolStripMenuItem.Size = new Size(180, 22);
-            changeTextColorToolStripMenuItem.Text = "&Change Text Color";
-            // 
-            // normalToolStripMenuItem
-            // 
-            normalToolStripMenuItem.Image = Properties.Resources.NormalA;
-            normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            normalToolStripMenuItem.Size = new Size(180, 22);
-            normalToolStripMenuItem.Text = "&Normal";
-            // 
-            // boldToolStripMenuItem
-            // 
-            boldToolStripMenuItem.Image = Properties.Resources.BoldA;
-            boldToolStripMenuItem.Name = "boldToolStripMenuItem";
-            boldToolStripMenuItem.Size = new Size(180, 22);
-            boldToolStripMenuItem.Text = "&Bold";
-            // 
-            // italicToolStripMenuItem
-            // 
-            italicToolStripMenuItem.Image = Properties.Resources.ItalicA;
-            italicToolStripMenuItem.Name = "italicToolStripMenuItem";
-            italicToolStripMenuItem.Size = new Size(180, 22);
-            italicToolStripMenuItem.Text = "&Italic";
-            // 
-            // underlineToolStripMenuItem
-            // 
-            underlineToolStripMenuItem.Image = Properties.Resources.UnderlineA;
-            underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
-            underlineToolStripMenuItem.Size = new Size(180, 22);
-            underlineToolStripMenuItem.Text = "&Underline";
-            // 
-            // strikethroughToolStripMenuItem
-            // 
-            strikethroughToolStripMenuItem.Image = Properties.Resources.StrikethroughA;
-            strikethroughToolStripMenuItem.Name = "strikethroughToolStripMenuItem";
-            strikethroughToolStripMenuItem.Size = new Size(180, 22);
-            strikethroughToolStripMenuItem.Text = "&Strikethrough";
-            // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(177, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new Size(177, 6);
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -564,13 +505,5 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
         private PageSetupDialog pageSetupDialog1;
-        private ToolStripMenuItem changeTextColorToolStripMenuItem;
-        private ToolStripMenuItem normalToolStripMenuItem;
-        private ToolStripMenuItem boldToolStripMenuItem;
-        private ToolStripMenuItem italicToolStripMenuItem;
-        private ToolStripMenuItem underlineToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator2;
-        private ToolStripMenuItem strikethroughToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator7;
     }
 }
