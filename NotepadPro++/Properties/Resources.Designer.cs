@@ -93,6 +93,16 @@ namespace NotepadPro__.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BoldA {
+            get {
+                object obj = ResourceManager.GetObject("BoldA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);
@@ -173,6 +183,16 @@ namespace NotepadPro__.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FormatFont {
+            get {
+                object obj = ResourceManager.GetObject("FormatFont", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap help {
             get {
                 object obj = ResourceManager.GetObject("help", resourceCulture);
@@ -183,9 +203,29 @@ namespace NotepadPro__.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ItalicA {
+            get {
+                object obj = ResourceManager.GetObject("ItalicA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap New {
             get {
                 object obj = ResourceManager.GetObject("New", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NormalA {
+            get {
+                object obj = ResourceManager.GetObject("NormalA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,6 +323,16 @@ namespace NotepadPro__.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap StrikethroughA {
+            get {
+                object obj = ResourceManager.GetObject("StrikethroughA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap text_replace {
             get {
                 object obj = ResourceManager.GetObject("text_replace", resourceCulture);
@@ -293,9 +343,29 @@ namespace NotepadPro__.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TextColor {
+            get {
+                object obj = ResourceManager.GetObject("TextColor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap typography {
             get {
                 object obj = ResourceManager.GetObject("typography", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnderlineA {
+            get {
+                object obj = ResourceManager.GetObject("UnderlineA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
