@@ -43,7 +43,7 @@
             exitFileMenuItem = new ToolStripMenuItem();
             editMenuItem = new ToolStripMenuItem();
             undoEditMenuItem = new ToolStripMenuItem();
-            redoRedoMenuItem = new ToolStripMenuItem();
+            redoMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             cutEditMenuItem = new ToolStripMenuItem();
             copyEditMenuItem = new ToolStripMenuItem();
@@ -179,7 +179,7 @@
             // 
             // editMenuItem
             // 
-            editMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoEditMenuItem, redoRedoMenuItem, toolStripSeparator3, cutEditMenuItem, copyEditMenuItem, pasteEditMenuItem, deleteEditMenuItem, toolStripSeparator4, findEditMenuItem, findNextEditMenuItem, replaceEditMenuItem, goToEditMenuItem, toolStripSeparator5, selectAllEditMenuItem, timeDateEditMenuItem });
+            editMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoEditMenuItem, redoMenuItem, toolStripSeparator3, cutEditMenuItem, copyEditMenuItem, pasteEditMenuItem, deleteEditMenuItem, toolStripSeparator4, findEditMenuItem, findNextEditMenuItem, replaceEditMenuItem, goToEditMenuItem, toolStripSeparator5, selectAllEditMenuItem, timeDateEditMenuItem });
             editMenuItem.Name = "editMenuItem";
             editMenuItem.Size = new Size(39, 20);
             editMenuItem.Text = "&Edit";
@@ -194,15 +194,15 @@
             undoEditMenuItem.Text = "&Undo";
             undoEditMenuItem.Click += undoEditMenuItem_Click;
             // 
-            // redoRedoMenuItem
+            // redoMenuItem
             // 
-            redoRedoMenuItem.Enabled = false;
-            redoRedoMenuItem.Image = Properties.Resources.arrow_redo;
-            redoRedoMenuItem.Name = "redoRedoMenuItem";
-            redoRedoMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
-            redoRedoMenuItem.Size = new Size(180, 22);
-            redoRedoMenuItem.Text = "&Redo";
-            redoRedoMenuItem.Click += redoRedoMenuItem_Click;
+            redoMenuItem.Enabled = false;
+            redoMenuItem.Image = Properties.Resources.arrow_redo;
+            redoMenuItem.Name = "redoMenuItem";
+            redoMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
+            redoMenuItem.Size = new Size(180, 22);
+            redoMenuItem.Text = "&Redo";
+            redoMenuItem.Click += redoMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
@@ -477,7 +477,7 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem printFileMenuItem;
         private ToolStripMenuItem undoEditMenuItem;
-        private ToolStripMenuItem redoRedoMenuItem;
+        private ToolStripMenuItem redoMenuItem;
         private ToolStripMenuItem cutEditMenuItem;
         private ToolStripMenuItem copyEditMenuItem;
         private ToolStripMenuItem pasteEditMenuItem;

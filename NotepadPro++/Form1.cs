@@ -43,9 +43,11 @@ namespace NotepadPro__
                         ClearScreen();
                         break;
                 }
-                undoEditMenuItem.Enabled = false;
+
             }
+
             ClearScreen();
+            EnableDisableUndoRedoProcess(false);
         }
 
         ///Exit Application feature of Menu Strip
@@ -74,9 +76,14 @@ namespace NotepadPro__
                 IsFileAlreadySaved = true;
                 IsFileModified = false;
                 CurrOpenFileName = openFileDialog1.FileName;
-
-                undoEditMenuItem.Enabled = false;
+                EnableDisableUndoRedoProcess(false);
             }
+        }
+
+        private void EnableDisableUndoRedoProcess(bool enable)
+        {
+            undoEditMenuItem.Enabled = enable;
+            redoMenuItem.Enabled = enable;
         }
 
         //Save As feature of Menu Strip
@@ -251,16 +258,16 @@ namespace NotepadPro__
         private void undoEditMenuItem_Click(object sender, EventArgs e)
         {
             rtbTextArea.Undo();
-            redoRedoMenuItem.Enabled = true;
+            redoMenuItem.Enabled = true;
             undoEditMenuItem.Enabled = false;
         }
 
         //Redo Features of Menu Strip
-        private void redoRedoMenuItem_Click(object sender, EventArgs e)
+        private void redoMenuItem_Click(object sender, EventArgs e)
         {
             rtbTextArea.Redo();
             undoEditMenuItem.Enabled = true;
-            redoRedoMenuItem.Enabled = false;
+            redoMenuItem.Enabled = false;
         }
     }
 }
