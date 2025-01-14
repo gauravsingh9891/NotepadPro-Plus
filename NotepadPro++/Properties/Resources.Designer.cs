@@ -133,6 +133,16 @@ namespace NotepadPro__.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cut_red {
+            get {
+                object obj = ResourceManager.GetObject("cut_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DateTime {
             get {
                 object obj = ResourceManager.GetObject("DateTime", resourceCulture);
@@ -276,6 +286,16 @@ namespace NotepadPro__.Properties {
         internal static System.Drawing.Bitmap print {
             get {
                 object obj = ResourceManager.GetObject("print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_preview {
+            get {
+                object obj = ResourceManager.GetObject("printer_preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -77,6 +77,31 @@
             statusStrip1 = new StatusStrip();
             rtbTextArea = new RichTextBox();
             toolStrip1 = new ToolStrip();
+            newFileToolStrip = new ToolStripButton();
+            openFileToolStrip = new ToolStripButton();
+            toolStripSeparator8 = new ToolStripSeparator();
+            saveToolStrip = new ToolStripButton();
+            saveAsToolStrip = new ToolStripButton();
+            toolStripSeparator9 = new ToolStripSeparator();
+            printToolStrip = new ToolStripButton();
+            printPreviewToolStrip = new ToolStripButton();
+            pageSetupToolStrip = new ToolStripButton();
+            toolStripSeparator10 = new ToolStripSeparator();
+            undoToolStrip = new ToolStripButton();
+            redoToolStrip = new ToolStripButton();
+            toolStripSeparator11 = new ToolStripSeparator();
+            cutToolStrip = new ToolStripButton();
+            copyToolStrip = new ToolStripButton();
+            pasteToolStrip = new ToolStripButton();
+            deleteToolStrip = new ToolStripButton();
+            toolStripSeparator12 = new ToolStripSeparator();
+            boldToolStrip = new ToolStripButton();
+            ItalicToolStrip = new ToolStripButton();
+            underlineToolStrip = new ToolStripButton();
+            strikeToolStrip = new ToolStripButton();
+            toolStripSeparator13 = new ToolStripSeparator();
+            fontFormatToolStrip = new ToolStripButton();
+            textColorToolStrip = new ToolStripButton();
             saveFileDialog1 = new SaveFileDialog();
             openFileDialog1 = new OpenFileDialog();
             printDialog1 = new PrintDialog();
@@ -90,6 +115,7 @@
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -476,10 +502,214 @@
             // toolStrip1
             // 
             toolStrip1.Dock = DockStyle.None;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { newFileToolStrip, openFileToolStrip, toolStripSeparator8, saveToolStrip, saveAsToolStrip, toolStripSeparator9, printToolStrip, printPreviewToolStrip, pageSetupToolStrip, toolStripSeparator10, undoToolStrip, redoToolStrip, toolStripSeparator11, cutToolStrip, copyToolStrip, pasteToolStrip, deleteToolStrip, toolStripSeparator12, boldToolStrip, ItalicToolStrip, underlineToolStrip, strikeToolStrip, toolStripSeparator13, fontFormatToolStrip, textColorToolStrip });
             toolStrip1.Location = new Point(3, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(111, 25);
+            toolStrip1.Size = new Size(485, 25);
             toolStrip1.TabIndex = 0;
+            // 
+            // newFileToolStrip
+            // 
+            newFileToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            newFileToolStrip.Image = Properties.Resources.New;
+            newFileToolStrip.ImageTransparentColor = Color.Magenta;
+            newFileToolStrip.Name = "newFileToolStrip";
+            newFileToolStrip.Size = new Size(23, 22);
+            newFileToolStrip.Text = "New File";
+            // 
+            // openFileToolStrip
+            // 
+            openFileToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            openFileToolStrip.Image = Properties.Resources.Open;
+            openFileToolStrip.ImageTransparentColor = Color.Magenta;
+            openFileToolStrip.Name = "openFileToolStrip";
+            openFileToolStrip.Size = new Size(23, 22);
+            openFileToolStrip.Text = "Open File";
+            // 
+            // toolStripSeparator8
+            // 
+            toolStripSeparator8.Name = "toolStripSeparator8";
+            toolStripSeparator8.Size = new Size(6, 25);
+            // 
+            // saveToolStrip
+            // 
+            saveToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            saveToolStrip.Image = Properties.Resources.Save;
+            saveToolStrip.ImageTransparentColor = Color.Magenta;
+            saveToolStrip.Name = "saveToolStrip";
+            saveToolStrip.Size = new Size(23, 22);
+            saveToolStrip.Text = "Save";
+            // 
+            // saveAsToolStrip
+            // 
+            saveAsToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            saveAsToolStrip.Image = Properties.Resources.save_as;
+            saveAsToolStrip.ImageTransparentColor = Color.Magenta;
+            saveAsToolStrip.Name = "saveAsToolStrip";
+            saveAsToolStrip.Size = new Size(23, 22);
+            saveAsToolStrip.Text = "Save As";
+            // 
+            // toolStripSeparator9
+            // 
+            toolStripSeparator9.Name = "toolStripSeparator9";
+            toolStripSeparator9.Size = new Size(6, 25);
+            // 
+            // printToolStrip
+            // 
+            printToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            printToolStrip.Image = Properties.Resources.print;
+            printToolStrip.ImageTransparentColor = Color.Magenta;
+            printToolStrip.Name = "printToolStrip";
+            printToolStrip.Size = new Size(23, 22);
+            printToolStrip.Text = "Print";
+            // 
+            // printPreviewToolStrip
+            // 
+            printPreviewToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            printPreviewToolStrip.Image = Properties.Resources.printer_preview;
+            printPreviewToolStrip.ImageTransparentColor = Color.Magenta;
+            printPreviewToolStrip.Name = "printPreviewToolStrip";
+            printPreviewToolStrip.Size = new Size(23, 22);
+            printPreviewToolStrip.Text = "Print Preview";
+            // 
+            // pageSetupToolStrip
+            // 
+            pageSetupToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            pageSetupToolStrip.Image = Properties.Resources.settings;
+            pageSetupToolStrip.ImageTransparentColor = Color.Magenta;
+            pageSetupToolStrip.Name = "pageSetupToolStrip";
+            pageSetupToolStrip.Size = new Size(23, 22);
+            pageSetupToolStrip.Text = "Page Setup";
+            // 
+            // toolStripSeparator10
+            // 
+            toolStripSeparator10.Name = "toolStripSeparator10";
+            toolStripSeparator10.Size = new Size(6, 25);
+            // 
+            // undoToolStrip
+            // 
+            undoToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            undoToolStrip.Enabled = false;
+            undoToolStrip.Image = Properties.Resources.arrow_undo;
+            undoToolStrip.ImageTransparentColor = Color.Magenta;
+            undoToolStrip.Name = "undoToolStrip";
+            undoToolStrip.Size = new Size(23, 22);
+            undoToolStrip.Text = "Undo";
+            // 
+            // redoToolStrip
+            // 
+            redoToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            redoToolStrip.Enabled = false;
+            redoToolStrip.Image = Properties.Resources.arrow_redo;
+            redoToolStrip.ImageTransparentColor = Color.Magenta;
+            redoToolStrip.Name = "redoToolStrip";
+            redoToolStrip.Size = new Size(23, 22);
+            redoToolStrip.Text = "Redo";
+            // 
+            // toolStripSeparator11
+            // 
+            toolStripSeparator11.Name = "toolStripSeparator11";
+            toolStripSeparator11.Size = new Size(6, 25);
+            // 
+            // cutToolStrip
+            // 
+            cutToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            cutToolStrip.Image = Properties.Resources.cut_red;
+            cutToolStrip.ImageTransparentColor = Color.Magenta;
+            cutToolStrip.Name = "cutToolStrip";
+            cutToolStrip.Size = new Size(23, 22);
+            cutToolStrip.Text = "Cut";
+            // 
+            // copyToolStrip
+            // 
+            copyToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            copyToolStrip.Image = Properties.Resources.copy;
+            copyToolStrip.ImageTransparentColor = Color.Magenta;
+            copyToolStrip.Name = "copyToolStrip";
+            copyToolStrip.Size = new Size(23, 22);
+            copyToolStrip.Text = "Copy";
+            // 
+            // pasteToolStrip
+            // 
+            pasteToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            pasteToolStrip.Image = Properties.Resources.paste;
+            pasteToolStrip.ImageTransparentColor = Color.Magenta;
+            pasteToolStrip.Name = "pasteToolStrip";
+            pasteToolStrip.Size = new Size(23, 22);
+            pasteToolStrip.Text = "Paste";
+            // 
+            // deleteToolStrip
+            // 
+            deleteToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            deleteToolStrip.Image = Properties.Resources.delete;
+            deleteToolStrip.ImageTransparentColor = Color.Magenta;
+            deleteToolStrip.Name = "deleteToolStrip";
+            deleteToolStrip.Size = new Size(23, 22);
+            deleteToolStrip.Text = "Delete";
+            // 
+            // toolStripSeparator12
+            // 
+            toolStripSeparator12.Name = "toolStripSeparator12";
+            toolStripSeparator12.Size = new Size(6, 25);
+            // 
+            // boldToolStrip
+            // 
+            boldToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            boldToolStrip.Image = Properties.Resources.BoldA;
+            boldToolStrip.ImageTransparentColor = Color.Magenta;
+            boldToolStrip.Name = "boldToolStrip";
+            boldToolStrip.Size = new Size(23, 22);
+            boldToolStrip.Text = "Bold";
+            // 
+            // ItalicToolStrip
+            // 
+            ItalicToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            ItalicToolStrip.Image = Properties.Resources.ItalicA;
+            ItalicToolStrip.ImageTransparentColor = Color.Magenta;
+            ItalicToolStrip.Name = "ItalicToolStrip";
+            ItalicToolStrip.Size = new Size(23, 22);
+            ItalicToolStrip.Text = "Italic";
+            // 
+            // underlineToolStrip
+            // 
+            underlineToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            underlineToolStrip.Image = Properties.Resources.UnderlineA;
+            underlineToolStrip.ImageTransparentColor = Color.Magenta;
+            underlineToolStrip.Name = "underlineToolStrip";
+            underlineToolStrip.Size = new Size(23, 22);
+            underlineToolStrip.Text = "Underline";
+            // 
+            // strikeToolStrip
+            // 
+            strikeToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            strikeToolStrip.Image = Properties.Resources.StrikethroughA;
+            strikeToolStrip.ImageTransparentColor = Color.Magenta;
+            strikeToolStrip.Name = "strikeToolStrip";
+            strikeToolStrip.Size = new Size(23, 22);
+            strikeToolStrip.Text = "Strikethrough";
+            // 
+            // toolStripSeparator13
+            // 
+            toolStripSeparator13.Name = "toolStripSeparator13";
+            toolStripSeparator13.Size = new Size(6, 25);
+            // 
+            // fontFormatToolStrip
+            // 
+            fontFormatToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            fontFormatToolStrip.Image = Properties.Resources.FormatFont;
+            fontFormatToolStrip.ImageTransparentColor = Color.Magenta;
+            fontFormatToolStrip.Name = "fontFormatToolStrip";
+            fontFormatToolStrip.Size = new Size(23, 22);
+            fontFormatToolStrip.Text = "Font Format";
+            // 
+            // textColorToolStrip
+            // 
+            textColorToolStrip.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            textColorToolStrip.Image = Properties.Resources.TextColor;
+            textColorToolStrip.ImageTransparentColor = Color.Magenta;
+            textColorToolStrip.Name = "textColorToolStrip";
+            textColorToolStrip.Size = new Size(23, 22);
+            textColorToolStrip.Text = "Text Color";
             // 
             // openFileDialog1
             // 
@@ -531,6 +761,8 @@
             toolStripContainer1.TopToolStripPanel.PerformLayout();
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -593,5 +825,30 @@
         private ToolStripSeparator toolStripSeparator7;
         private FontDialog fontDialog1;
         private ColorDialog colorDialog1;
+        private ToolStripButton newFileToolStrip;
+        private ToolStripButton openFileToolStrip;
+        private ToolStripSeparator toolStripSeparator8;
+        private ToolStripButton saveToolStrip;
+        private ToolStripButton saveAsToolStrip;
+        private ToolStripSeparator toolStripSeparator9;
+        private ToolStripButton printToolStrip;
+        private ToolStripButton printPreviewToolStrip;
+        private ToolStripButton pageSetupToolStrip;
+        private ToolStripSeparator toolStripSeparator10;
+        private ToolStripButton undoToolStrip;
+        private ToolStripButton redoToolStrip;
+        private ToolStripSeparator toolStripSeparator11;
+        private ToolStripButton boldToolStrip;
+        private ToolStripButton ItalicToolStrip;
+        private ToolStripButton underlineToolStrip;
+        private ToolStripButton strikeToolStrip;
+        private ToolStripButton cutToolStrip;
+        private ToolStripButton copyToolStrip;
+        private ToolStripButton pasteToolStrip;
+        private ToolStripButton deleteToolStrip;
+        private ToolStripSeparator toolStripSeparator12;
+        private ToolStripSeparator toolStripSeparator13;
+        private ToolStripButton fontFormatToolStrip;
+        private ToolStripButton textColorToolStrip;
     }
 }
