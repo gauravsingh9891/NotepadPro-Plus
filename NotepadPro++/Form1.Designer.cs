@@ -409,11 +409,13 @@
             // 
             // printDialog1
             // 
+            printDialog1.Document = printDocument1;
             printDialog1.UseEXDialog = true;
             // 
             // printDocument1
             // 
-            printDocument1.PrintPage += printDocument1_PrintPage;
+            printDocument1.BeginPrint += printDocument1_BeginPrint;
+            printDocument1.PrintPage += OnPrintPage;
             // 
             // printPreviewDialog1
             // 

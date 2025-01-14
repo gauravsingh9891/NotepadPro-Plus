@@ -1,3 +1,9 @@
+using System.Drawing.Printing;
+using System.Linq;
+using System.Text;
+using static System.Windows.Forms.LinkLabel;
+using System.Windows.Forms;
+
 namespace NotepadPro__
 {
     public partial class Form1 : Form
@@ -5,6 +11,8 @@ namespace NotepadPro__
         private bool IsFileAlreadySaved;
         private bool IsFileModified;
         private string CurrOpenFileName;
+        private int linesPrinted;
+        private string[] lines;
         public Form1()
         {
             InitializeComponent();
@@ -155,22 +163,10 @@ namespace NotepadPro__
             //this.Text = "*" + CurrOpenFileName + "- Notepad Pro++";
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawString(rtbTextArea.Text, new Font("Arial", 12, FontStyle.Regular), SystemBrushes.WindowText, new Point(25, 25));
-        }
-
-        //Print feature of Menu Strip
-        private void printFileMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = printDialog1.ShowDialog();
-            if (dr == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
-
-        }
-
+        //private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        //{
+        //    e.Graphics.DrawString(rtbTextArea.Text, new Font("Arial", 12, FontStyle.Regular), SystemBrushes.WindowText, new Point(25, 25));
+        //}
         //Page Preview feature of Menu Strip
         private void PrintPreviewFile_Click(object sender, EventArgs e)
         {
@@ -188,6 +184,60 @@ namespace NotepadPro__
             {
                 printDocument1.PrinterSettings = pageSetupDialog1.PrinterSettings;
                 printDocument1.DefaultPageSettings = pageSetupDialog1.PageSettings;
+            }
+        }
+
+        //Print feature of Menu Strip
+        private void printFileMenuItem_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        //Implementing PrintDocument Page Setup
+        private void OnPrintPage(object sender, PrintPageEventArgs e)
+        {
+            int x = e.MarginBounds.Left;
+            int y = e.MarginBounds.Top;
+            Brush brush = new SolidBrush(rtbTextArea.ForeColor);
+
+            while (linesPrinted < lines.Length)
+            {
+                e.Graphics.DrawString(lines[linesPrinted++],
+                    rtbTextArea.Font, brush, x, y);
+                y += 15;
+                if (y >= e.MarginBounds.Bottom)
+                {
+                    e.HasMorePages = true;
+                    return;
+                }
+            }
+
+            linesPrinted = 0;
+            e.HasMorePages = false;
+        }
+
+        //Implementing PrintDocument Page Starting position to print
+        private void printDocument1_BeginPrint(object sender, PrintEventArgs e)
+        {
+            char[] param = { '\n' };
+
+            if (printDialog1.PrinterSettings.PrintRange == PrintRange.Selection)
+            {
+                lines = rtbTextArea.SelectedText.Split(param);
+            }
+            else
+            {
+                lines = rtbTextArea.Text.Split(param);
+            }
+
+            int i = 0;
+            char[] trimParam = { '\r' };
+            foreach (string s in lines)
+            {
+                lines[i++] = s.TrimEnd(trimParam);
             }
         }
     }
