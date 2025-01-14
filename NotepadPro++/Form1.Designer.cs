@@ -289,6 +289,7 @@
             selectAllEditMenuItem.ShortcutKeys = Keys.Control | Keys.A;
             selectAllEditMenuItem.Size = new Size(180, 22);
             selectAllEditMenuItem.Text = "Se&lect All";
+            selectAllEditMenuItem.Click += selectAllEditMenuItem_Click;
             // 
             // timeDateEditMenuItem
             // 

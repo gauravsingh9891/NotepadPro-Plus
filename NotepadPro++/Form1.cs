@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using static System.Windows.Forms.LinkLabel;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace NotepadPro__
 {
@@ -27,7 +28,7 @@ namespace NotepadPro__
             fb.ShowDialog();
         }
 
-        ///New File feature of Menu Strip
+        ///New File feature of FileMenu Strip
         private void newFileMenuItem_Click(object sender, EventArgs e)
         {
             if (IsFileModified)
@@ -50,7 +51,7 @@ namespace NotepadPro__
             EnableDisableUndoRedoProcess(false);
         }
 
-        ///Exit Application feature of Menu Strip
+        ///Exit Application feature of FileMenu Strip
         private void exitFileMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -86,7 +87,7 @@ namespace NotepadPro__
             redoMenuItem.Enabled = enable;
         }
 
-        //Save As feature of Menu Strip
+        //Save As feature of FileMenu Strip
         private void saveAsFileMenuItem_Click(object sender, EventArgs e)
         {
             //Call SaveFileMenu Code
@@ -115,7 +116,7 @@ namespace NotepadPro__
             }
         }
 
-        //Save feature of Menu Strip
+        //Save feature of FileMenu Strip
         private void saveFileMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileMenu();
@@ -180,14 +181,14 @@ namespace NotepadPro__
         //{
         //    e.Graphics.DrawString(rtbTextArea.Text, new Font("Arial", 12, FontStyle.Regular), SystemBrushes.WindowText, new Point(25, 25));
         //}
-        //Page Preview feature of Menu Strip
+        //Page Preview feature of FileMenu Strip
         private void PrintPreviewFile_Click(object sender, EventArgs e)
         {
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
         }
 
-        //Page Setup feature of Menu Strip
+        //Page Setup feature of FileMenu Strip
         private void PageSetupFileMenu_Click(object sender, EventArgs e)
         {
             pageSetupDialog1.PrinterSettings = printDocument1.PrinterSettings;
@@ -200,7 +201,7 @@ namespace NotepadPro__
             }
         }
 
-        //Print feature of Menu Strip
+        //Print feature of FileMenu Strip
         private void printFileMenuItem_Click(object sender, EventArgs e)
         {
             if (printDialog1.ShowDialog() == DialogResult.OK)
@@ -254,7 +255,7 @@ namespace NotepadPro__
             }
         }
 
-        //Undo Feature of Menu Strip
+        //Undo Feature of EditMenu Strip
         private void undoEditMenuItem_Click(object sender, EventArgs e)
         {
             rtbTextArea.Undo();
@@ -262,12 +263,18 @@ namespace NotepadPro__
             undoEditMenuItem.Enabled = false;
         }
 
-        //Redo Features of Menu Strip
+        //Redo Features of EditMenu Strip
         private void redoMenuItem_Click(object sender, EventArgs e)
         {
             rtbTextArea.Redo();
             undoEditMenuItem.Enabled = true;
             redoMenuItem.Enabled = false;
+        }
+
+        //Text Select All Features of EditMenu Strip
+        private void selectAllEditMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbTextArea.SelectAll();   
         }
     }
 }
