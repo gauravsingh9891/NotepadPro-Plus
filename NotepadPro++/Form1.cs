@@ -282,5 +282,40 @@ namespace NotepadPro__
         {
             rtbTextArea.SelectedText = DateTime.Now.ToString();
         }
+
+        private void FormatText(FontStyle fontStyle)
+        {
+            rtbTextArea.SelectionFont = new Font(rtbTextArea.Font, fontStyle);
+        }
+
+        //Text Bold Features of FormatMenu Strip
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Bold);
+        }
+
+        //Text Italic Features of FormatMenu Strip
+        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Italic);
+        }
+
+        //Text Underline Features of FormatMenu Strip
+        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Underline);
+        }
+
+        //Text Strikeout Features of FormatMenu Strip
+        private void strikethroughToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Strikeout);
+        }
+
+        //Text Normal Features of FormatMenu Strip
+        private void normalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Regular);
+        }
     }
 }
