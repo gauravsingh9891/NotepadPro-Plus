@@ -274,7 +274,13 @@ namespace NotepadPro__
         //Text Select All Features of EditMenu Strip
         private void selectAllEditMenuItem_Click(object sender, EventArgs e)
         {
-            rtbTextArea.SelectAll();   
+            rtbTextArea.SelectAll();
+        }
+
+        //TimeDate Features of EditMenu Strip
+        private void timeDateEditMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbTextArea.SelectedText = DateTime.Now.ToString();
         }
     }
 }

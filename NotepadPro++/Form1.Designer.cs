@@ -298,6 +298,7 @@
             timeDateEditMenuItem.ShortcutKeys = Keys.F5;
             timeDateEditMenuItem.Size = new Size(180, 22);
             timeDateEditMenuItem.Text = "Time/Date";
+            timeDateEditMenuItem.Click += timeDateEditMenuItem_Click;
             // 
             // formatMenuItem
             // 
