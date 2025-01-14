@@ -83,6 +83,7 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             pageSetupDialog1 = new PageSetupDialog();
+            fontDialog1 = new FontDialog();
             menuStrip1.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
@@ -321,6 +322,7 @@
             fontFormatMenuItem.Name = "fontFormatMenuItem";
             fontFormatMenuItem.Size = new Size(180, 22);
             fontFormatMenuItem.Text = "&Font...";
+            fontFormatMenuItem.Click += fontFormatMenuItem_Click;
             // 
             // changeTextColorToolStripMenuItem
             // 
@@ -328,6 +330,7 @@
             changeTextColorToolStripMenuItem.Name = "changeTextColorToolStripMenuItem";
             changeTextColorToolStripMenuItem.Size = new Size(180, 22);
             changeTextColorToolStripMenuItem.Text = "&Change Text Color";
+            changeTextColorToolStripMenuItem.Click += changeTextColorToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
@@ -583,5 +586,6 @@
         private ToolStripMenuItem underlineToolStripMenuItem;
         private ToolStripMenuItem strikethroughToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator7;
+        private FontDialog fontDialog1;
     }
 }

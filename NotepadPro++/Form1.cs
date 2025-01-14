@@ -317,5 +317,25 @@ namespace NotepadPro__
         {
             FormatText(FontStyle.Regular);
         }
+
+        //Font Format Features of FormatMenu Strip
+        private void fontFormatMenuItem_Click(object sender, EventArgs e)
+        {
+            fontDialog1.ShowColor = true;
+            DialogResult dr = fontDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                if(rtbTextArea.SelectionLength>0)
+                {
+                    rtbTextArea.SelectionFont = fontDialog1.Font;
+                    rtbTextArea.SelectionColor = fontDialog1.Color;
+                }
+            }
+        }
+
+        private void changeTextColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
