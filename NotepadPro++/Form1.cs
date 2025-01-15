@@ -185,8 +185,22 @@ namespace NotepadPro__
             IsFileAlreadySaved = false;
             IsFileModified = false;
             CurrOpenFileName = "Untitled";
+            CapsKeyMethod();
             MessageToolStripStatusLabel.Text = "New Document";
             this.Text = CurrOpenFileName + " - Notepad Pro++";
+
+        }
+
+        private void CapsKeyMethod()
+        {
+            if (Control.IsKeyLocked(Keys.CapsLock))
+            {
+                capsToolStripStatusLabel.Text = "CAPS ON";
+            }
+            else
+            {
+                capsToolStripStatusLabel.Text = "CAPS OFF";
+            }
         }
 
         //Implementing: TextArea Text Changed Event 
@@ -512,6 +526,12 @@ namespace NotepadPro__
         private void redoToolStrip_Click(object sender, EventArgs e)
         {
             RedoMethod();
+        }
+
+        //Implementing CAPS Key Status functionality
+        private void rtbTextArea_KeyDown(object sender, KeyEventArgs e)
+        {
+            CapsKeyMethod();
         }
     }
 }

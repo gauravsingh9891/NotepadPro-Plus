@@ -76,6 +76,8 @@
             aboutNotepadMenuItem = new ToolStripMenuItem();
             toolStripContainer1 = new ToolStripContainer();
             statusStrip1 = new StatusStrip();
+            MessageToolStripStatusLabel = new ToolStripStatusLabel();
+            capsToolStripStatusLabel = new ToolStripStatusLabel();
             rtbTextArea = new RichTextBox();
             toolStrip1 = new ToolStrip();
             newFileToolStrip = new ToolStripButton();
@@ -111,7 +113,6 @@
             pageSetupDialog1 = new PageSetupDialog();
             fontDialog1 = new FontDialog();
             colorDialog1 = new ColorDialog();
-            MessageToolStripStatusLabel = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
@@ -491,11 +492,31 @@
             // statusStrip1
             // 
             statusStrip1.Dock = DockStyle.None;
-            statusStrip1.Items.AddRange(new ToolStripItem[] { MessageToolStripStatusLabel });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { MessageToolStripStatusLabel, capsToolStripStatusLabel });
             statusStrip1.Location = new Point(0, 0);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(946, 22);
             statusStrip1.TabIndex = 0;
+            // 
+            // MessageToolStripStatusLabel
+            // 
+            MessageToolStripStatusLabel.AutoSize = false;
+            MessageToolStripStatusLabel.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            MessageToolStripStatusLabel.BorderStyle = Border3DStyle.Sunken;
+            MessageToolStripStatusLabel.Name = "MessageToolStripStatusLabel";
+            MessageToolStripStatusLabel.Size = new Size(260, 17);
+            MessageToolStripStatusLabel.Text = "toolStripStatusLabel1";
+            MessageToolStripStatusLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // capsToolStripStatusLabel
+            // 
+            capsToolStripStatusLabel.AutoSize = false;
+            capsToolStripStatusLabel.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            capsToolStripStatusLabel.BorderStyle = Border3DStyle.Sunken;
+            capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
+            capsToolStripStatusLabel.Size = new Size(80, 17);
+            capsToolStripStatusLabel.Text = "CAPS ON";
+            capsToolStripStatusLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // rtbTextArea
             // 
@@ -508,6 +529,7 @@
             rtbTextArea.TabIndex = 0;
             rtbTextArea.Text = "";
             rtbTextArea.TextChanged += rtbTextArea_TextChanged;
+            rtbTextArea.KeyDown += rtbTextArea_KeyDown;
             // 
             // toolStrip1
             // 
@@ -767,15 +789,6 @@
             // 
             fontDialog1.Apply += fontDialog1_Apply;
             // 
-            // MessageToolStripStatusLabel
-            // 
-            MessageToolStripStatusLabel.AutoSize = false;
-            MessageToolStripStatusLabel.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
-            MessageToolStripStatusLabel.BorderStyle = Border3DStyle.Sunken;
-            MessageToolStripStatusLabel.Name = "MessageToolStripStatusLabel";
-            MessageToolStripStatusLabel.Size = new Size(350, 17);
-            MessageToolStripStatusLabel.Text = "toolStripStatusLabel1";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -891,5 +904,6 @@
         private ToolStripButton textColorToolStrip;
         private ToolStripMenuItem boldToolStripMenuItem1;
         private ToolStripStatusLabel MessageToolStripStatusLabel;
+        private ToolStripStatusLabel capsToolStripStatusLabel;
     }
 }
