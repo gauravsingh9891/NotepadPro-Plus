@@ -615,5 +615,26 @@ namespace NotepadPro__
         {
             pasteEditMenuItem.PerformClick();
         }
+
+        //Delete Features of EditMenu Strip
+        private void deleteEditMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rtbTextArea.SelectionLength > 0)
+            {
+                rtbTextArea.SelectedText = "";
+            }
+        }
+
+        //Implemented : "Text Delete" Feature of ToolStrip
+        private void deleteToolStrip_Click(object sender, EventArgs e)
+        {
+            deleteEditMenuItem.PerformClick();
+        }
+
+        //Delete feature of ContextMenu Item
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deleteEditMenuItem.PerformClick();
+        }
     }
 }

@@ -299,6 +299,7 @@
             deleteEditMenuItem.ShortcutKeys = Keys.Delete;
             deleteEditMenuItem.Size = new Size(167, 22);
             deleteEditMenuItem.Text = "Delete";
+            deleteEditMenuItem.Click += deleteEditMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
@@ -561,7 +562,7 @@
             // 
             cutContextMenuItem.Image = Properties.Resources.cut_red;
             cutContextMenuItem.Name = "cutContextMenuItem";
-            cutContextMenuItem.Size = new Size(180, 22);
+            cutContextMenuItem.Size = new Size(146, 22);
             cutContextMenuItem.Text = "&Cut";
             cutContextMenuItem.Click += cutContextMenuItem_Click;
             // 
@@ -569,7 +570,7 @@
             // 
             copyContextMenuItem.Image = Properties.Resources.copy;
             copyContextMenuItem.Name = "copyContextMenuItem";
-            copyContextMenuItem.Size = new Size(180, 22);
+            copyContextMenuItem.Size = new Size(146, 22);
             copyContextMenuItem.Text = "C&opy";
             copyContextMenuItem.Click += copyContextMenuItem_Click;
             // 
@@ -577,7 +578,7 @@
             // 
             pasteContextMenuItem.Image = Properties.Resources.paste;
             pasteContextMenuItem.Name = "pasteContextMenuItem";
-            pasteContextMenuItem.Size = new Size(180, 22);
+            pasteContextMenuItem.Size = new Size(146, 22);
             pasteContextMenuItem.Text = "&Paste";
             pasteContextMenuItem.Click += pasteContextMenuItem_Click;
             // 
@@ -587,17 +588,18 @@
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new Size(180, 22);
             deleteToolStripMenuItem.Text = "&Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // toolStripSeparator14
             // 
             toolStripSeparator14.Name = "toolStripSeparator14";
-            toolStripSeparator14.Size = new Size(177, 6);
+            toolStripSeparator14.Size = new Size(143, 6);
             // 
             // boldContextMenuItem
             // 
             boldContextMenuItem.Image = Properties.Resources.BoldA;
             boldContextMenuItem.Name = "boldContextMenuItem";
-            boldContextMenuItem.Size = new Size(180, 22);
+            boldContextMenuItem.Size = new Size(146, 22);
             boldContextMenuItem.Text = "&Bold";
             boldContextMenuItem.Click += boldContextMenuItem_Click;
             // 
@@ -605,7 +607,7 @@
             // 
             italicContextMenuItem.Image = Properties.Resources.ItalicA;
             italicContextMenuItem.Name = "italicContextMenuItem";
-            italicContextMenuItem.Size = new Size(180, 22);
+            italicContextMenuItem.Size = new Size(146, 22);
             italicContextMenuItem.Text = "&Italic";
             italicContextMenuItem.Click += italicContextMenuItem_Click;
             // 
@@ -613,20 +615,20 @@
             // 
             normalContextMenuItem.Image = Properties.Resources.NormalA;
             normalContextMenuItem.Name = "normalContextMenuItem";
-            normalContextMenuItem.Size = new Size(180, 22);
+            normalContextMenuItem.Size = new Size(146, 22);
             normalContextMenuItem.Text = "&Normal";
             normalContextMenuItem.Click += normalContextMenuItem_Click;
             // 
             // toolStripSeparator16
             // 
             toolStripSeparator16.Name = "toolStripSeparator16";
-            toolStripSeparator16.Size = new Size(177, 6);
+            toolStripSeparator16.Size = new Size(143, 6);
             // 
             // underlineContextMenuItem
             // 
             underlineContextMenuItem.Image = Properties.Resources.UnderlineA;
             underlineContextMenuItem.Name = "underlineContextMenuItem";
-            underlineContextMenuItem.Size = new Size(180, 22);
+            underlineContextMenuItem.Size = new Size(146, 22);
             underlineContextMenuItem.Text = "&Underline";
             underlineContextMenuItem.Click += underlineContextMenuItem_Click;
             // 
@@ -634,20 +636,20 @@
             // 
             strikethroughContextMenuItem.Image = Properties.Resources.StrikethroughA;
             strikethroughContextMenuItem.Name = "strikethroughContextMenuItem";
-            strikethroughContextMenuItem.Size = new Size(180, 22);
+            strikethroughContextMenuItem.Size = new Size(146, 22);
             strikethroughContextMenuItem.Text = "&Strikethrough";
             strikethroughContextMenuItem.Click += strikethroughContextMenuItem_Click;
             // 
             // toolStripSeparator15
             // 
             toolStripSeparator15.Name = "toolStripSeparator15";
-            toolStripSeparator15.Size = new Size(177, 6);
+            toolStripSeparator15.Size = new Size(143, 6);
             // 
             // printContextMenuItem
             // 
             printContextMenuItem.Image = Properties.Resources.print;
             printContextMenuItem.Name = "printContextMenuItem";
-            printContextMenuItem.Size = new Size(180, 22);
+            printContextMenuItem.Size = new Size(146, 22);
             printContextMenuItem.Text = "&Print";
             printContextMenuItem.Click += printContextMenuItem_Click;
             // 
@@ -810,6 +812,7 @@
             deleteToolStrip.Name = "deleteToolStrip";
             deleteToolStrip.Size = new Size(23, 22);
             deleteToolStrip.Text = "Delete";
+            deleteToolStrip.Click += deleteToolStrip_Click;
             // 
             // toolStripSeparator12
             // 
