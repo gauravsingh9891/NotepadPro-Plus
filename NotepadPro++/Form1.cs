@@ -533,5 +533,87 @@ namespace NotepadPro__
         {
             CapsKeyMethod();
         }
+
+        //Bold feature of ContextMenu Item
+        private void boldContextMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Bold);
+        }
+
+        //Italic feature of ContextMenu Item
+        private void italicContextMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Italic);
+        }
+
+        //normal feature of ContextMenu Item
+        private void normalContextMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Regular);
+        }
+
+        //underline feature of ContextMenu Item
+        private void underlineContextMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Underline);
+        }
+
+        //strikethrough feature of ContextMenu Item
+        private void strikethroughContextMenuItem_Click(object sender, EventArgs e)
+        {
+            FormatText(FontStyle.Strikeout);
+        }
+
+        //print feature of ContextMenu Item
+        private void printContextMenuItem_Click(object sender, EventArgs e)
+        {
+            printFileMenuItem.PerformClick();
+        }
+
+        //Cut Features of EditMenu Strip
+        private void cutEditMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rtbTextArea.SelectionLength > 0)
+            {
+                Clipboard.SetText(rtbTextArea.SelectedText);
+                rtbTextArea.SelectedText = "";
+            }
+        }
+
+        //Copy Features of EditMenu Strip
+        private void copyEditMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rtbTextArea.SelectionLength > 0)
+            {
+                Clipboard.SetText(rtbTextArea.SelectedText);
+            }
+        }
+
+        //Paste Features of EditMenu Strip
+        private void pasteEditMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                rtbTextArea.SelectedText = Clipboard.GetText();
+            }
+        }
+
+        //Cut feature of ContextMenu Item
+        private void cutContextMenuItem_Click(object sender, EventArgs e)
+        {
+            cutEditMenuItem.PerformClick();
+        }
+
+        //Copy feature of ContextMenu Item
+        private void copyContextMenuItem_Click(object sender, EventArgs e)
+        {
+            copyEditMenuItem.PerformClick();
+        }
+
+        //Paste feature of ContextMenu Item
+        private void pasteContextMenuItem_Click(object sender, EventArgs e)
+        {
+            pasteEditMenuItem.PerformClick();
+        }
     }
 }

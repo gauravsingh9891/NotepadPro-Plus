@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip1 = new MenuStrip();
             fileMenuItem = new ToolStripMenuItem();
@@ -79,6 +80,20 @@
             MessageToolStripStatusLabel = new ToolStripStatusLabel();
             capsToolStripStatusLabel = new ToolStripStatusLabel();
             rtbTextArea = new RichTextBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            cutContextMenuItem = new ToolStripMenuItem();
+            copyContextMenuItem = new ToolStripMenuItem();
+            pasteContextMenuItem = new ToolStripMenuItem();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator14 = new ToolStripSeparator();
+            boldContextMenuItem = new ToolStripMenuItem();
+            italicContextMenuItem = new ToolStripMenuItem();
+            normalContextMenuItem = new ToolStripMenuItem();
+            toolStripSeparator16 = new ToolStripSeparator();
+            underlineContextMenuItem = new ToolStripMenuItem();
+            strikethroughContextMenuItem = new ToolStripMenuItem();
+            toolStripSeparator15 = new ToolStripSeparator();
+            printContextMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             newFileToolStrip = new ToolStripButton();
             openFileToolStrip = new ToolStripButton();
@@ -119,6 +134,7 @@
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
             statusStrip1.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -256,6 +272,7 @@
             cutEditMenuItem.ShortcutKeys = Keys.Control | Keys.X;
             cutEditMenuItem.Size = new Size(167, 22);
             cutEditMenuItem.Text = "&Cut";
+            cutEditMenuItem.Click += cutEditMenuItem_Click;
             // 
             // copyEditMenuItem
             // 
@@ -264,6 +281,7 @@
             copyEditMenuItem.ShortcutKeys = Keys.Control | Keys.C;
             copyEditMenuItem.Size = new Size(167, 22);
             copyEditMenuItem.Text = "Copy";
+            copyEditMenuItem.Click += copyEditMenuItem_Click;
             // 
             // pasteEditMenuItem
             // 
@@ -272,6 +290,7 @@
             pasteEditMenuItem.ShortcutKeys = Keys.Control | Keys.V;
             pasteEditMenuItem.Size = new Size(167, 22);
             pasteEditMenuItem.Text = "Paste";
+            pasteEditMenuItem.Click += pasteEditMenuItem_Click;
             // 
             // deleteEditMenuItem
             // 
@@ -520,6 +539,7 @@
             // 
             // rtbTextArea
             // 
+            rtbTextArea.ContextMenuStrip = contextMenuStrip1;
             rtbTextArea.Dock = DockStyle.Fill;
             rtbTextArea.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtbTextArea.Location = new Point(0, 0);
@@ -530,6 +550,106 @@
             rtbTextArea.Text = "";
             rtbTextArea.TextChanged += rtbTextArea_TextChanged;
             rtbTextArea.KeyDown += rtbTextArea_KeyDown;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { cutContextMenuItem, copyContextMenuItem, pasteContextMenuItem, deleteToolStripMenuItem, toolStripSeparator14, boldContextMenuItem, italicContextMenuItem, normalContextMenuItem, toolStripSeparator16, underlineContextMenuItem, strikethroughContextMenuItem, toolStripSeparator15, printContextMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(181, 264);
+            // 
+            // cutContextMenuItem
+            // 
+            cutContextMenuItem.Image = Properties.Resources.cut_red;
+            cutContextMenuItem.Name = "cutContextMenuItem";
+            cutContextMenuItem.Size = new Size(180, 22);
+            cutContextMenuItem.Text = "&Cut";
+            cutContextMenuItem.Click += cutContextMenuItem_Click;
+            // 
+            // copyContextMenuItem
+            // 
+            copyContextMenuItem.Image = Properties.Resources.copy;
+            copyContextMenuItem.Name = "copyContextMenuItem";
+            copyContextMenuItem.Size = new Size(180, 22);
+            copyContextMenuItem.Text = "C&opy";
+            copyContextMenuItem.Click += copyContextMenuItem_Click;
+            // 
+            // pasteContextMenuItem
+            // 
+            pasteContextMenuItem.Image = Properties.Resources.paste;
+            pasteContextMenuItem.Name = "pasteContextMenuItem";
+            pasteContextMenuItem.Size = new Size(180, 22);
+            pasteContextMenuItem.Text = "&Paste";
+            pasteContextMenuItem.Click += pasteContextMenuItem_Click;
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Image = Properties.Resources.delete;
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(180, 22);
+            deleteToolStripMenuItem.Text = "&Delete";
+            // 
+            // toolStripSeparator14
+            // 
+            toolStripSeparator14.Name = "toolStripSeparator14";
+            toolStripSeparator14.Size = new Size(177, 6);
+            // 
+            // boldContextMenuItem
+            // 
+            boldContextMenuItem.Image = Properties.Resources.BoldA;
+            boldContextMenuItem.Name = "boldContextMenuItem";
+            boldContextMenuItem.Size = new Size(180, 22);
+            boldContextMenuItem.Text = "&Bold";
+            boldContextMenuItem.Click += boldContextMenuItem_Click;
+            // 
+            // italicContextMenuItem
+            // 
+            italicContextMenuItem.Image = Properties.Resources.ItalicA;
+            italicContextMenuItem.Name = "italicContextMenuItem";
+            italicContextMenuItem.Size = new Size(180, 22);
+            italicContextMenuItem.Text = "&Italic";
+            italicContextMenuItem.Click += italicContextMenuItem_Click;
+            // 
+            // normalContextMenuItem
+            // 
+            normalContextMenuItem.Image = Properties.Resources.NormalA;
+            normalContextMenuItem.Name = "normalContextMenuItem";
+            normalContextMenuItem.Size = new Size(180, 22);
+            normalContextMenuItem.Text = "&Normal";
+            normalContextMenuItem.Click += normalContextMenuItem_Click;
+            // 
+            // toolStripSeparator16
+            // 
+            toolStripSeparator16.Name = "toolStripSeparator16";
+            toolStripSeparator16.Size = new Size(177, 6);
+            // 
+            // underlineContextMenuItem
+            // 
+            underlineContextMenuItem.Image = Properties.Resources.UnderlineA;
+            underlineContextMenuItem.Name = "underlineContextMenuItem";
+            underlineContextMenuItem.Size = new Size(180, 22);
+            underlineContextMenuItem.Text = "&Underline";
+            underlineContextMenuItem.Click += underlineContextMenuItem_Click;
+            // 
+            // strikethroughContextMenuItem
+            // 
+            strikethroughContextMenuItem.Image = Properties.Resources.StrikethroughA;
+            strikethroughContextMenuItem.Name = "strikethroughContextMenuItem";
+            strikethroughContextMenuItem.Size = new Size(180, 22);
+            strikethroughContextMenuItem.Text = "&Strikethrough";
+            strikethroughContextMenuItem.Click += strikethroughContextMenuItem_Click;
+            // 
+            // toolStripSeparator15
+            // 
+            toolStripSeparator15.Name = "toolStripSeparator15";
+            toolStripSeparator15.Size = new Size(177, 6);
+            // 
+            // printContextMenuItem
+            // 
+            printContextMenuItem.Image = Properties.Resources.print;
+            printContextMenuItem.Name = "printContextMenuItem";
+            printContextMenuItem.Size = new Size(180, 22);
+            printContextMenuItem.Text = "&Print";
+            printContextMenuItem.Click += printContextMenuItem_Click;
             // 
             // toolStrip1
             // 
@@ -813,6 +933,7 @@
             toolStripContainer1.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -905,5 +1026,19 @@
         private ToolStripMenuItem boldToolStripMenuItem1;
         private ToolStripStatusLabel MessageToolStripStatusLabel;
         private ToolStripStatusLabel capsToolStripStatusLabel;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem boldContextMenuItem;
+        private ToolStripMenuItem italicContextMenuItem;
+        private ToolStripMenuItem underlineContextMenuItem;
+        private ToolStripMenuItem normalContextMenuItem;
+        private ToolStripMenuItem cutContextMenuItem;
+        private ToolStripMenuItem copyContextMenuItem;
+        private ToolStripMenuItem pasteContextMenuItem;
+        private ToolStripSeparator toolStripSeparator14;
+        private ToolStripMenuItem strikethroughContextMenuItem;
+        private ToolStripMenuItem printContextMenuItem;
+        private ToolStripSeparator toolStripSeparator16;
+        private ToolStripSeparator toolStripSeparator15;
+        private ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
