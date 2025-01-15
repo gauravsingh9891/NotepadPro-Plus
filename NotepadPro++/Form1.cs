@@ -81,10 +81,13 @@ namespace NotepadPro__
             }
         }
 
+        //Implemented: Enable or Disable functionality logic
         private void EnableDisableUndoRedoProcess(bool enable)
         {
             undoEditMenuItem.Enabled = enable;
+            undoToolStrip.Enabled = enable;
             redoMenuItem.Enabled = enable;
+            redoToolStrip.Enabled = enable;
         }
 
         //Save As feature of FileMenu Strip
@@ -94,6 +97,7 @@ namespace NotepadPro__
             SaveAsFileMenu();
         }
 
+        //Implementing: SaveAs File functionality logic 
         private void SaveAsFileMenu()
         {
             saveFileDialog1.FileName = "";
@@ -151,6 +155,7 @@ namespace NotepadPro__
             }
         }
 
+        //Notepad Text Clear Logic
         private void ClearScreen()
         {
             rtbTextArea.Clear();
@@ -158,6 +163,7 @@ namespace NotepadPro__
             IsFileModified = false;
         }
 
+        //Notepad Startup Event logic
         private void Form1_Load(object sender, EventArgs e)
         {
             IsFileAlreadySaved = false;
@@ -175,25 +181,21 @@ namespace NotepadPro__
             //this.Text = "*" + CurrOpenFileName + "- Notepad Pro++";
 
             undoEditMenuItem.Enabled = true;
+            undoToolStrip.Enabled = true;
         }
 
-        //private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        //{
-        //    e.Graphics.DrawString(rtbTextArea.Text, new Font("Arial", 12, FontStyle.Regular), SystemBrushes.WindowText, new Point(25, 25));
-        //}
-        //Page Preview feature of FileMenu Strip
+        //Print Preview feature of FileMenu Strip
         private void PrintPreviewFile_Click(object sender, EventArgs e)
         {
             PreviewPrint();
         }
 
+        //Implemented : "Print Preview" functionality logic
         private void PreviewPrint()
         {
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
         }
-
-
 
         //Page Setup feature of FileMenu Strip
         private void PageSetupFileMenu_Click(object sender, EventArgs e)
@@ -265,17 +267,33 @@ namespace NotepadPro__
         //Undo Feature of EditMenu Strip
         private void undoEditMenuItem_Click(object sender, EventArgs e)
         {
+            UndoMethod();
+        }
+
+        //Implemented : Undo functionality logic
+        private void UndoMethod()
+        {
             rtbTextArea.Undo();
             redoMenuItem.Enabled = true;
+            redoToolStrip.Enabled = true;
+            undoToolStrip.Enabled = false;
             undoEditMenuItem.Enabled = false;
         }
 
         //Redo Features of EditMenu Strip
         private void redoMenuItem_Click(object sender, EventArgs e)
         {
+            RedoMethod();
+        }
+
+        //Implemented : Redo functionality logic
+        private void RedoMethod()
+        {
             rtbTextArea.Redo();
             undoEditMenuItem.Enabled = true;
+            undoToolStrip.Enabled = true;
             redoMenuItem.Enabled = false;
+            redoToolStrip.Enabled = false;
         }
 
         //Text Select All Features of EditMenu Strip
@@ -290,6 +308,7 @@ namespace NotepadPro__
             rtbTextArea.SelectedText = DateTime.Now.ToString();
         }
 
+        //Implement: Font Format logic
         private void FormatText(FontStyle fontStyle)
         {
             rtbTextArea.SelectionFont = new Font(rtbTextArea.Font, fontStyle);
@@ -369,84 +388,112 @@ namespace NotepadPro__
             }
         }
 
+        //Implemented : "New File" Feature of FileMenuStrip
         private void newFileToolStrip_Click(object sender, EventArgs e)
         {
             newFileMenuItem.PerformClick();
         }
 
+        //Implemented : "Open File" Feature of ToolStrip
         private void openFileToolStrip_Click(object sender, EventArgs e)
         {
             openFileMenuItem.PerformClick();
         }
 
+        //Implemented : "Save" Feature of ToolStrip
         private void saveToolStrip_Click(object sender, EventArgs e)
         {
             saveFileMenuItem.PerformClick();
         }
 
+        //Implemented : "Save As" Feature of ToolStrip
         private void saveAsToolStrip_Click(object sender, EventArgs e)
         {
             saveAsFileMenuItem.PerformClick();
         }
 
+        //Implemented : "Print" Feature of ToolStrip
         private void printToolStrip_Click(object sender, EventArgs e)
         {
             printFileMenuItem.PerformClick();
         }
 
+        //Implemented : "Print Preview" Feature of ToolStrip
         private void printPreviewToolStrip_Click(object sender, EventArgs e)
         {
             PreviewPrint();
         }
 
+        //Implemented : "Page Setup" Feature of ToolStrip
         private void pageSetupToolStrip_Click(object sender, EventArgs e)
         {
             PageSetupFileMenu.PerformClick();
         }
 
+        //Implemented : "Cut" Feature of ToolStrip
         private void cutToolStrip_Click(object sender, EventArgs e)
         {
             cutEditMenuItem.PerformClick();
         }
 
+        //Implemented : "Copy" Feature of ToolStrip
         private void copyToolStrip_Click(object sender, EventArgs e)
         {
             copyEditMenuItem.PerformClick();
         }
 
+        //Implemented : "Paste" Feature of ToolStrip
         private void pasteToolStrip_Click(object sender, EventArgs e)
         {
             pasteEditMenuItem.PerformClick();
         }
 
+        //Implemented : "Text Bold" Feature of ToolStrip
         private void boldToolStrip_Click(object sender, EventArgs e)
         {
             boldToolStripMenuItem.PerformClick();
         }
 
+        //Implemented : "Text Italic" Feature of ToolStrip
         private void ItalicToolStrip_Click(object sender, EventArgs e)
         {
             italicToolStripMenuItem.PerformClick();
         }
 
+        //Implemented : "Text Underline" Feature of ToolStrip
         private void underlineToolStrip_Click(object sender, EventArgs e)
         {
             underlineToolStripMenuItem.PerformClick();
         }
 
+        //Implemented : "Text Strikethrough" Feature of ToolStrip
         private void strikeToolStrip_Click(object sender, EventArgs e)
         {
             strikethroughToolStripMenuItem.PerformClick();
         }
 
+        //Implemented : "Text Font Format" Feature of ToolStrip
         private void fontFormatToolStrip_Click(object sender, EventArgs e)
         {
             fontFormatMenuItem.PerformClick();
         }
 
+        //Implemented : "Text Color" Feature of ToolStrip
         private void textColorToolStrip_Click(object sender, EventArgs e)
         {
             changeTextColorToolStripMenuItem.PerformClick();
+        }
+
+        //Implemented : "Undo" Feature of ToolStrip
+        private void undoToolStrip_Click(object sender, EventArgs e)
+        {
+            UndoMethod();
+        }
+
+        //Implemented : "Redo" Feature of ToolStrip
+        private void redoToolStrip_Click(object sender, EventArgs e)
+        {
+            RedoMethod();
         }
     }
 }
