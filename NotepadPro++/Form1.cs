@@ -31,6 +31,12 @@ namespace NotepadPro__
         ///New File feature of FileMenu Strip
         private void newFileMenuItem_Click(object sender, EventArgs e)
         {
+            NewFileMethod();
+        }
+
+        //Implemented: New File & Message Status Label feature of FileMenu Strip
+        private void NewFileMethod()
+        {
             if (IsFileModified)
             {
                 DialogResult dr = MessageBox.Show("Do you want to save this file ?", "File Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -49,6 +55,7 @@ namespace NotepadPro__
 
             ClearScreen();
             EnableDisableUndoRedoProcess(false);
+            MessageToolStripStatusLabel.Text = "New File is created";
         }
 
         ///Exit Application feature of FileMenu Strip
@@ -59,6 +66,12 @@ namespace NotepadPro__
 
         //Open File feature of Menu Strip
         private void openFileMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileMethod();
+        }
+
+        //Implemented: Open File & Message Status Label feature of FileMenu Strip
+        private void OpenFileMethod()
         {
             openFileDialog1.Filter = "Text Files (*.txt)|*.txt|Rich Text Format (*.rtf)|*.rtf";
             DialogResult dr = openFileDialog1.ShowDialog();
@@ -78,6 +91,7 @@ namespace NotepadPro__
                 IsFileModified = false;
                 CurrOpenFileName = openFileDialog1.FileName;
                 EnableDisableUndoRedoProcess(false);
+                MessageToolStripStatusLabel.Text = "File is Opened";
             }
         }
 
@@ -169,6 +183,7 @@ namespace NotepadPro__
             IsFileAlreadySaved = false;
             IsFileModified = false;
             CurrOpenFileName = "Untitled";
+            MessageToolStripStatusLabel.Text = "New Document";
             this.Text = CurrOpenFileName + " - Notepad Pro++";
         }
 
@@ -391,13 +406,13 @@ namespace NotepadPro__
         //Implemented : "New File" Feature of FileMenuStrip
         private void newFileToolStrip_Click(object sender, EventArgs e)
         {
-            newFileMenuItem.PerformClick();
+            NewFileMethod();
         }
 
         //Implemented : "Open File" Feature of ToolStrip
         private void openFileToolStrip_Click(object sender, EventArgs e)
         {
-            openFileMenuItem.PerformClick();
+            OpenFileMethod();
         }
 
         //Implemented : "Save" Feature of ToolStrip

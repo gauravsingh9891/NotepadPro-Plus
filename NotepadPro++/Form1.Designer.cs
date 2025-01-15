@@ -111,11 +111,13 @@
             pageSetupDialog1 = new PageSetupDialog();
             fontDialog1 = new FontDialog();
             colorDialog1 = new ColorDialog();
+            MessageToolStripStatusLabel = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -489,6 +491,7 @@
             // statusStrip1
             // 
             statusStrip1.Dock = DockStyle.None;
+            statusStrip1.Items.AddRange(new ToolStripItem[] { MessageToolStripStatusLabel });
             statusStrip1.Location = new Point(0, 0);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(946, 22);
@@ -512,7 +515,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { newFileToolStrip, openFileToolStrip, toolStripSeparator8, saveToolStrip, saveAsToolStrip, toolStripSeparator9, printToolStrip, printPreviewToolStrip, pageSetupToolStrip, toolStripSeparator10, undoToolStrip, redoToolStrip, toolStripSeparator11, cutToolStrip, copyToolStrip, pasteToolStrip, deleteToolStrip, toolStripSeparator12, boldToolStrip, ItalicToolStrip, underlineToolStrip, strikeToolStrip, toolStripSeparator13, fontFormatToolStrip, textColorToolStrip });
             toolStrip1.Location = new Point(3, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(516, 25);
+            toolStrip1.Size = new Size(485, 25);
             toolStrip1.TabIndex = 0;
             // 
             // newFileToolStrip
@@ -764,6 +767,15 @@
             // 
             fontDialog1.Apply += fontDialog1_Apply;
             // 
+            // MessageToolStripStatusLabel
+            // 
+            MessageToolStripStatusLabel.AutoSize = false;
+            MessageToolStripStatusLabel.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            MessageToolStripStatusLabel.BorderStyle = Border3DStyle.Sunken;
+            MessageToolStripStatusLabel.Name = "MessageToolStripStatusLabel";
+            MessageToolStripStatusLabel.Size = new Size(350, 17);
+            MessageToolStripStatusLabel.Text = "toolStripStatusLabel1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -786,6 +798,8 @@
             toolStripContainer1.TopToolStripPanel.PerformLayout();
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -876,5 +890,6 @@
         private ToolStripButton fontFormatToolStrip;
         private ToolStripButton textColorToolStrip;
         private ToolStripMenuItem boldToolStripMenuItem1;
+        private ToolStripStatusLabel MessageToolStripStatusLabel;
     }
 }
