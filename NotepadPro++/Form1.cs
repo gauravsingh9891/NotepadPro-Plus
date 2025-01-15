@@ -55,7 +55,7 @@ namespace NotepadPro__
 
             ClearScreen();
             EnableDisableUndoRedoProcess(false);
-            MessageToolStripStatusLabel.Text = "New File is created";
+            MessageToolStripStatusLabel.Text = "New Document is created";
         }
 
         ///Exit Application feature of FileMenu Strip
@@ -131,6 +131,7 @@ namespace NotepadPro__
                 IsFileAlreadySaved = true;
                 IsFileModified = false;
                 CurrOpenFileName = saveFileDialog1.FileName;
+                MessageToolStripStatusLabel.Text = "New File is created and saved successfully";
             }
         }
 
@@ -155,6 +156,7 @@ namespace NotepadPro__
                 }
                 IsFileModified = false;
                 this.Text = Path.GetFileName(CurrOpenFileName) + " - Notepad Pro++";
+                MessageToolStripStatusLabel.Text = "File is saved successfully";
             }
             else
             {
@@ -197,6 +199,7 @@ namespace NotepadPro__
 
             undoEditMenuItem.Enabled = true;
             undoToolStrip.Enabled = true;
+            MessageToolStripStatusLabel.Text = "File is Modified";
         }
 
         //Print Preview feature of FileMenu Strip
