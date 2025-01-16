@@ -23,6 +23,27 @@ namespace NotepadPro__
             InitializeComponent();
         }
 
+        //Notepad Startup Event logic
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            IsFileAlreadySaved = false;
+            IsFileModified = false;
+            CurrOpenFileName = "Untitled";
+            CapsKeyMethod();
+            MessageToolStripStatusLabel.Text = "New Document";
+            this.Text = CurrOpenFileName + " - Notepad Pro++";
+
+            rtbTextArea.WordWrap = wordWrapFormatMenuItem.Checked;
+            statusBarViewMenuItem.Enabled = !wordWrapFormatMenuItem.Checked;
+            if (statusBarViewMenuItem.Enabled)
+            {
+                statusBarViewMenuItem.Checked = true;
+            }
+            statusContent.Visible = statusBarViewMenuItem.Checked;
+
+        }
+
+        #region File Menu
         ///About Notepad Pro++ of Help Menu
         private void aboutNotepadMenuItem_Click(object sender, EventArgs e)
         {
@@ -181,38 +202,6 @@ namespace NotepadPro__
             IsFileModified = false;
         }
 
-        //Notepad Startup Event logic
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            IsFileAlreadySaved = false;
-            IsFileModified = false;
-            CurrOpenFileName = "Untitled";
-            CapsKeyMethod();
-            MessageToolStripStatusLabel.Text = "New Document";
-            this.Text = CurrOpenFileName + " - Notepad Pro++";
-
-            rtbTextArea.WordWrap = wordWrapFormatMenuItem.Checked;
-            statusBarViewMenuItem.Enabled = !wordWrapFormatMenuItem.Checked;
-            if (statusBarViewMenuItem.Enabled)
-            {
-                statusBarViewMenuItem.Checked = true;
-            }
-            statusContent.Visible = statusBarViewMenuItem.Checked;
-
-        }
-
-        private void CapsKeyMethod()
-        {
-            if (Control.IsKeyLocked(Keys.CapsLock))
-            {
-                capsToolStripStatusLabel.Text = "CAPS ON";
-            }
-            else
-            {
-                capsToolStripStatusLabel.Text = "CAPS OFF";
-            }
-        }
-
         //Implementing: TextArea Text Changed Event 
         private void rtbTextArea_TextChanged(object sender, EventArgs e)
         {
@@ -305,7 +294,15 @@ namespace NotepadPro__
                 lines[i++] = s.TrimEnd(trimParam);
             }
         }
+        
+        //Implemented : "New File" Feature of FileMenuStrip
+        private void newFileToolStrip_Click(object sender, EventArgs e)
+        {
+            NewFileMethod();
+        }
+        #endregion
 
+        #region Edit Menu
         //Undo Feature of EditMenu Strip
         private void undoEditMenuItem_Click(object sender, EventArgs e)
         {
@@ -349,7 +346,96 @@ namespace NotepadPro__
         {
             rtbTextArea.SelectedText = DateTime.Now.ToString();
         }
+        //Cut Features of EditMenu Strip
+        private void cutEditMenuItem_Click(object sender, EventArgs e)
+        {
+            CutMethod();
+        }
+        private void CutMethod()
+        {
+            if (rtbTextArea.SelectionLength > 0)
+            {
+                Clipboard.SetText(rtbTextArea.SelectedText);
+                rtbTextArea.SelectedText = "";
+            }
+        }
 
+        //Copy Features of EditMenu Strip
+        private void copyEditMenuItem_Click(object sender, EventArgs e)
+        {
+            CopyMethod();
+        }
+        private void CopyMethod()
+        {
+            if (rtbTextArea.SelectionLength > 0)
+            {
+                Clipboard.SetText(rtbTextArea.SelectedText);
+            }
+        }
+
+        //Paste Features of EditMenu Strip
+        private void pasteEditMenuItem_Click(object sender, EventArgs e)
+        {
+            PasteMethod();
+        }
+        private void PasteMethod()
+        {
+            if (Clipboard.ContainsText())
+            {
+                rtbTextArea.SelectedText = Clipboard.GetText();
+            }
+        }
+        //Delete Features of EditMenu Strip
+        private void deleteEditMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteMethod();
+        }
+        private void DeleteMethod()
+        {
+            if (rtbTextArea.SelectionLength > 0)
+            {
+                rtbTextArea.SelectedText = "";
+            }
+        }
+        //Implementing: Enable OR Disable Cut,Copy,Delete,Paste Feature for Edit Menu
+        private void editMenuItem_Click(object sender, EventArgs e)
+        {
+            cutEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            copyEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            deleteEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            pasteEditMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Text);
+        }
+        //GoTo Line no Feature of EditMenu Strip
+        private void goToEditMenuItem_Click(object sender, EventArgs e)
+        {
+            string input = Interaction.InputBox("Line Number", "Go To", "1");
+            try
+            {
+                int line = Convert.ToInt32(input);
+                if (line > rtbTextArea.Lines.Length)
+                {
+                    MessageBox.Show("Total line in the file is " + rtbTextArea.Lines, "Can't Reach", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string[] lines = rtbTextArea.Lines;
+                    int len = 0;
+                    for (int i = 0; i < line - 1; i++)
+                    {
+                        len += lines[i].Length + 1;
+                    }
+                    rtbTextArea.Focus();
+                    rtbTextArea.Select(len, 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Enter a valid Integer", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        #region Format Menu
         //Implement: Font Format logic
         private void FormatText(FontStyle fontStyle)
         {
@@ -429,13 +515,25 @@ namespace NotepadPro__
                 }
             }
         }
-
-        //Implemented : "New File" Feature of FileMenuStrip
-        private void newFileToolStrip_Click(object sender, EventArgs e)
+        //Implementing Word Wrap feature in FormatMenu
+        private void wordWrapFormatMenuItem_CheckedChanged(object sender, EventArgs e)
         {
-            NewFileMethod();
+            rtbTextArea.WordWrap = wordWrapFormatMenuItem.Checked;
+            statusBarViewMenuItem.Enabled = !wordWrapFormatMenuItem.Checked;
+            statusBarViewMenuItem.Checked = true;
+            statusContent.Visible = statusBarViewMenuItem.Enabled;
         }
+        #endregion
 
+        #region View Menu
+        //Implementing Status feature in ViewMenu
+        private void statusBarViewMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            statusContent.Visible = statusBarViewMenuItem.Enabled;
+        }
+        #endregion
+
+        #region Tool Strip (Shortcuts Menu)
         //Implemented : "Open File" Feature of ToolStrip
         private void openFileToolStrip_Click(object sender, EventArgs e)
         {
@@ -489,7 +587,6 @@ namespace NotepadPro__
         //Implemented : "Paste" Feature of ToolStrip
         private void pasteToolStrip_Click(object sender, EventArgs e)
         {
-
             PasteMethod();
         }
 
@@ -540,13 +637,16 @@ namespace NotepadPro__
         {
             RedoMethod();
         }
-
-        //Implementing CAPS Key Status functionality
-        private void rtbTextArea_KeyDown(object sender, KeyEventArgs e)
+        
+        //Implemented : "Text Delete" Feature of ToolStrip
+        private void deleteToolStrip_Click(object sender, EventArgs e)
         {
-            CapsKeyMethod();
+            deleteToolStrip.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            DeleteMethod();
         }
+        #endregion
 
+        #region ContextMenu
         //Bold feature of ContextMenu Item
         private void boldContextMenuItem_Click(object sender, EventArgs e)
         {
@@ -582,50 +682,7 @@ namespace NotepadPro__
         {
             printFileMenuItem.PerformClick();
         }
-
-        //Cut Features of EditMenu Strip
-        private void cutEditMenuItem_Click(object sender, EventArgs e)
-        {
-            CutMethod();
-        }
-
-        private void CutMethod()
-        {
-            if (rtbTextArea.SelectionLength > 0)
-            {
-                Clipboard.SetText(rtbTextArea.SelectedText);
-                rtbTextArea.SelectedText = "";
-            }
-        }
-
-        //Copy Features of EditMenu Strip
-        private void copyEditMenuItem_Click(object sender, EventArgs e)
-        {
-            CopyMethod();
-        }
-
-        private void CopyMethod()
-        {
-            if (rtbTextArea.SelectionLength > 0)
-            {
-                Clipboard.SetText(rtbTextArea.SelectedText);
-            }
-        }
-
-        //Paste Features of EditMenu Strip
-        private void pasteEditMenuItem_Click(object sender, EventArgs e)
-        {
-            PasteMethod();
-        }
-
-        private void PasteMethod()
-        {
-            if (Clipboard.ContainsText())
-            {
-                rtbTextArea.SelectedText = Clipboard.GetText();
-            }
-        }
-
+        
         //Cut feature of ContextMenu Item
         private void cutContextMenuItem_Click(object sender, EventArgs e)
         {
@@ -643,41 +700,10 @@ namespace NotepadPro__
         {
             PasteMethod();
         }
-
-        //Delete Features of EditMenu Strip
-        private void deleteEditMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteMethod();
-        }
-
-        private void DeleteMethod()
-        {
-            if (rtbTextArea.SelectionLength > 0)
-            {
-                rtbTextArea.SelectedText = "";
-            }
-        }
-
-        //Implemented : "Text Delete" Feature of ToolStrip
-        private void deleteToolStrip_Click(object sender, EventArgs e)
-        {
-            deleteToolStrip.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
-            DeleteMethod();
-        }
-
         //Delete feature of ContextMenu Item
         private void deleteContextMenuItem_Click(object sender, EventArgs e)
         {
             DeleteMethod();
-        }
-
-        //Implementing: Enable OR Disable Cut,Copy,Delete,Paste Feature for Edit Menu
-        private void editMenuItem_Click(object sender, EventArgs e)
-        {
-            cutEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
-            copyEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
-            deleteEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
-            pasteEditMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Text);
         }
 
         //Implementing: Enable OR Disable Cut,Copy,Delete,Paste Feature for Context Menu
@@ -688,49 +714,25 @@ namespace NotepadPro__
             deleteContextMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
             pasteContextMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Text);
         }
+        #endregion
 
-        //GoTo Line no Feature of EditMenu Strip
-        private void goToEditMenuItem_Click(object sender, EventArgs e)
+        #region Status Bar
+        private void CapsKeyMethod()
         {
-            string input = Interaction.InputBox("Line Number", "Go To", "1");
-            try
+            if (Control.IsKeyLocked(Keys.CapsLock))
             {
-                int line = Convert.ToInt32(input);
-                if (line > rtbTextArea.Lines.Length)
-                {
-                    MessageBox.Show("Total line in the file is " + rtbTextArea.Lines, "Can't Reach", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    string[] lines = rtbTextArea.Lines;
-                    int len = 0;
-                    for (int i = 0; i < line - 1; i++)
-                    {
-                        len += lines[i].Length + 1;
-                    }
-                    rtbTextArea.Focus();
-                    rtbTextArea.Select(len, 0);
-                }
+                capsToolStripStatusLabel.Text = "CAPS ON";
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Enter a valid Integer", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                capsToolStripStatusLabel.Text = "CAPS OFF";
             }
         }
-        
-        //Implementing Word Wrap feature in FormatMenu
-        private void wordWrapFormatMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            rtbTextArea.WordWrap = wordWrapFormatMenuItem.Checked;
-            statusBarViewMenuItem.Enabled = !wordWrapFormatMenuItem.Checked;
-            statusBarViewMenuItem.Checked = true;
-            statusContent.Visible = statusBarViewMenuItem.Enabled;
-        }
 
-        //Implementing Status feature in ViewMenu
-        private void statusBarViewMenuItem_CheckedChanged(object sender, EventArgs e)
+        //Implementing CAPS Key Status functionality
+        private void rtbTextArea_KeyDown(object sender, KeyEventArgs e)
         {
-            statusContent.Visible = statusBarViewMenuItem.Enabled;
+            CapsKeyMethod();
         }
 
         //Adding Line no. & Col no. feature of Status
@@ -743,9 +745,10 @@ namespace NotepadPro__
         private void UpdateStatus()
         {
             int Pos = rtbTextArea.SelectionStart;
-            int Line = rtbTextArea.GetLineFromCharIndex(Pos)+1;
+            int Line = rtbTextArea.GetLineFromCharIndex(Pos) + 1;
             int Col = Pos - rtbTextArea.GetFirstCharIndexOfCurrentLine() + 1;
             status.Text = "Ln " + Line + ", Col " + Col;
         }
+        #endregion
     }
 }
