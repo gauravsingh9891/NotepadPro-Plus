@@ -5,6 +5,7 @@ using static System.Windows.Forms.LinkLabel;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using Microsoft.VisualBasic;
+using System.Data;
 
 namespace NotepadPro__
 {
@@ -189,6 +190,14 @@ namespace NotepadPro__
             CapsKeyMethod();
             MessageToolStripStatusLabel.Text = "New Document";
             this.Text = CurrOpenFileName + " - Notepad Pro++";
+
+            rtbTextArea.WordWrap = wordWrapFormatMenuItem.Checked;
+            statusBarViewMenuItem.Enabled = !wordWrapFormatMenuItem.Checked;
+            if (statusBarViewMenuItem.Enabled)
+            {
+                statusBarViewMenuItem.Checked = true;
+            }
+            statusContent.Visible = statusBarViewMenuItem.Checked;
 
         }
 
@@ -687,26 +696,56 @@ namespace NotepadPro__
             try
             {
                 int line = Convert.ToInt32(input);
-                if(line>rtbTextArea.Lines.Length)
+                if (line > rtbTextArea.Lines.Length)
                 {
-                    MessageBox.Show("Total line in the file is "+rtbTextArea.Lines,"Can't Reach",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Total line in the file is " + rtbTextArea.Lines, "Can't Reach", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     string[] lines = rtbTextArea.Lines;
                     int len = 0;
-                    for(int i = 0; i < line - 1; i++)
+                    for (int i = 0; i < line - 1; i++)
                     {
-                        len += lines[i].Length+1;
+                        len += lines[i].Length + 1;
                     }
                     rtbTextArea.Focus();
                     rtbTextArea.Select(len, 0);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Enter a valid Integer","Wrong Input",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Enter a valid Integer", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        
+        //Implementing Word Wrap feature in FormatMenu
+        private void wordWrapFormatMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            rtbTextArea.WordWrap = wordWrapFormatMenuItem.Checked;
+            statusBarViewMenuItem.Enabled = !wordWrapFormatMenuItem.Checked;
+            statusBarViewMenuItem.Checked = true;
+            statusContent.Visible = statusBarViewMenuItem.Enabled;
+        }
+
+        //Implementing Status feature in ViewMenu
+        private void statusBarViewMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            statusContent.Visible = statusBarViewMenuItem.Enabled;
+        }
+
+        //Adding Line no. & Col no. feature of Status
+        private void rtbTextArea_SelectionChanged(object sender, EventArgs e)
+        {
+            UpdateStatus();
+        }
+
+        //Implementing Line no. & Col no. feature of Status
+        private void UpdateStatus()
+        {
+            int Pos = rtbTextArea.SelectionStart;
+            int Line = rtbTextArea.GetLineFromCharIndex(Pos)+1;
+            int Col = Pos - rtbTextArea.GetFirstCharIndexOfCurrentLine() + 1;
+            status.Text = "Ln " + Line + ", Col " + Col;
         }
     }
 }

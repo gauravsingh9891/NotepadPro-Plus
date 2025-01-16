@@ -51,9 +51,6 @@
             pasteEditMenuItem = new ToolStripMenuItem();
             deleteEditMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
-            findEditMenuItem = new ToolStripMenuItem();
-            findNextEditMenuItem = new ToolStripMenuItem();
-            replaceEditMenuItem = new ToolStripMenuItem();
             goToEditMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
             selectAllEditMenuItem = new ToolStripMenuItem();
@@ -69,16 +66,15 @@
             strikethroughToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator7 = new ToolStripSeparator();
             wordWrapFormatMenuItem = new ToolStripMenuItem();
-            boldToolStripMenuItem1 = new ToolStripMenuItem();
             viewMenuItem = new ToolStripMenuItem();
             statusBarViewMenuItem = new ToolStripMenuItem();
             helpMenuItem = new ToolStripMenuItem();
-            viewHelpMenuItem = new ToolStripMenuItem();
             aboutNotepadMenuItem = new ToolStripMenuItem();
             toolStripContainer1 = new ToolStripContainer();
-            statusStrip1 = new StatusStrip();
+            statusContent = new StatusStrip();
             MessageToolStripStatusLabel = new ToolStripStatusLabel();
             capsToolStripStatusLabel = new ToolStripStatusLabel();
+            status = new ToolStripStatusLabel();
             rtbTextArea = new RichTextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             cutContextMenuItem = new ToolStripMenuItem();
@@ -133,7 +129,7 @@
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
-            statusStrip1.SuspendLayout();
+            statusContent.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
@@ -235,7 +231,7 @@
             // 
             // editMenuItem
             // 
-            editMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoEditMenuItem, redoMenuItem, toolStripSeparator3, cutEditMenuItem, copyEditMenuItem, pasteEditMenuItem, deleteEditMenuItem, toolStripSeparator4, findEditMenuItem, findNextEditMenuItem, replaceEditMenuItem, goToEditMenuItem, toolStripSeparator5, selectAllEditMenuItem, timeDateEditMenuItem });
+            editMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoEditMenuItem, redoMenuItem, toolStripSeparator3, cutEditMenuItem, copyEditMenuItem, pasteEditMenuItem, deleteEditMenuItem, toolStripSeparator4, selectAllEditMenuItem, timeDateEditMenuItem, toolStripSeparator5, goToEditMenuItem });
             editMenuItem.Name = "editMenuItem";
             editMenuItem.Size = new Size(39, 20);
             editMenuItem.Text = "&Edit";
@@ -311,30 +307,6 @@
             toolStripSeparator4.Name = "toolStripSeparator4";
             toolStripSeparator4.Size = new Size(177, 6);
             // 
-            // findEditMenuItem
-            // 
-            findEditMenuItem.Image = Properties.Resources.find;
-            findEditMenuItem.Name = "findEditMenuItem";
-            findEditMenuItem.ShortcutKeys = Keys.Control | Keys.F;
-            findEditMenuItem.Size = new Size(180, 22);
-            findEditMenuItem.Text = "Find...";
-            // 
-            // findNextEditMenuItem
-            // 
-            findNextEditMenuItem.Image = Properties.Resources.FindNext;
-            findNextEditMenuItem.Name = "findNextEditMenuItem";
-            findNextEditMenuItem.ShortcutKeys = Keys.F3;
-            findNextEditMenuItem.Size = new Size(180, 22);
-            findNextEditMenuItem.Text = "Find Next";
-            // 
-            // replaceEditMenuItem
-            // 
-            replaceEditMenuItem.Image = Properties.Resources.text_replace;
-            replaceEditMenuItem.Name = "replaceEditMenuItem";
-            replaceEditMenuItem.ShortcutKeys = Keys.Control | Keys.H;
-            replaceEditMenuItem.Size = new Size(180, 22);
-            replaceEditMenuItem.Text = "Replace...";
-            // 
             // goToEditMenuItem
             // 
             goToEditMenuItem.Name = "goToEditMenuItem";
@@ -368,7 +340,7 @@
             // 
             // formatMenuItem
             // 
-            formatMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fontFormatMenuItem, changeTextColorToolStripMenuItem, toolStripSeparator2, normalToolStripMenuItem, boldToolStripMenuItem, italicToolStripMenuItem, underlineToolStripMenuItem, strikethroughToolStripMenuItem, toolStripSeparator7, wordWrapFormatMenuItem, boldToolStripMenuItem1 });
+            formatMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fontFormatMenuItem, changeTextColorToolStripMenuItem, toolStripSeparator2, normalToolStripMenuItem, boldToolStripMenuItem, italicToolStripMenuItem, underlineToolStripMenuItem, strikethroughToolStripMenuItem, toolStripSeparator7, wordWrapFormatMenuItem });
             formatMenuItem.Name = "formatMenuItem";
             formatMenuItem.Size = new Size(57, 20);
             formatMenuItem.Text = "&Format";
@@ -444,17 +416,11 @@
             // 
             // wordWrapFormatMenuItem
             // 
-            wordWrapFormatMenuItem.Checked = true;
-            wordWrapFormatMenuItem.CheckState = CheckState.Checked;
+            wordWrapFormatMenuItem.CheckOnClick = true;
             wordWrapFormatMenuItem.Name = "wordWrapFormatMenuItem";
             wordWrapFormatMenuItem.Size = new Size(171, 22);
             wordWrapFormatMenuItem.Text = "Word Wrap";
-            // 
-            // boldToolStripMenuItem1
-            // 
-            boldToolStripMenuItem1.Name = "boldToolStripMenuItem1";
-            boldToolStripMenuItem1.Size = new Size(171, 22);
-            boldToolStripMenuItem1.Text = "&Bold";
+            wordWrapFormatMenuItem.CheckedChanged += wordWrapFormatMenuItem_CheckedChanged;
             // 
             // viewMenuItem
             // 
@@ -465,25 +431,18 @@
             // 
             // statusBarViewMenuItem
             // 
-            statusBarViewMenuItem.Checked = true;
-            statusBarViewMenuItem.CheckState = CheckState.Checked;
+            statusBarViewMenuItem.CheckOnClick = true;
             statusBarViewMenuItem.Name = "statusBarViewMenuItem";
             statusBarViewMenuItem.Size = new Size(126, 22);
             statusBarViewMenuItem.Text = "Status Bar";
+            statusBarViewMenuItem.CheckedChanged += statusBarViewMenuItem_CheckedChanged;
             // 
             // helpMenuItem
             // 
-            helpMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewHelpMenuItem, aboutNotepadMenuItem });
+            helpMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutNotepadMenuItem });
             helpMenuItem.Name = "helpMenuItem";
             helpMenuItem.Size = new Size(44, 20);
             helpMenuItem.Text = "&Help";
-            // 
-            // viewHelpMenuItem
-            // 
-            viewHelpMenuItem.Image = Properties.Resources.help;
-            viewHelpMenuItem.Name = "viewHelpMenuItem";
-            viewHelpMenuItem.Size = new Size(193, 22);
-            viewHelpMenuItem.Text = "View Help";
             // 
             // aboutNotepadMenuItem
             // 
@@ -498,7 +457,7 @@
             // 
             // toolStripContainer1.BottomToolStripPanel
             // 
-            toolStripContainer1.BottomToolStripPanel.Controls.Add(statusStrip1);
+            toolStripContainer1.BottomToolStripPanel.Controls.Add(statusContent);
             // 
             // toolStripContainer1.ContentPanel
             // 
@@ -515,20 +474,19 @@
             // 
             toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip1);
             // 
-            // statusStrip1
+            // statusContent
             // 
-            statusStrip1.Dock = DockStyle.None;
-            statusStrip1.Items.AddRange(new ToolStripItem[] { MessageToolStripStatusLabel, capsToolStripStatusLabel });
-            statusStrip1.Location = new Point(0, 0);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(946, 22);
-            statusStrip1.TabIndex = 0;
+            statusContent.Dock = DockStyle.None;
+            statusContent.Items.AddRange(new ToolStripItem[] { MessageToolStripStatusLabel, capsToolStripStatusLabel, status });
+            statusContent.Location = new Point(0, 0);
+            statusContent.Name = "statusContent";
+            statusContent.Size = new Size(946, 22);
+            statusContent.TabIndex = 0;
             // 
             // MessageToolStripStatusLabel
             // 
             MessageToolStripStatusLabel.AutoSize = false;
-            MessageToolStripStatusLabel.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
-            MessageToolStripStatusLabel.BorderStyle = Border3DStyle.Sunken;
+            MessageToolStripStatusLabel.BorderSides = ToolStripStatusLabelBorderSides.Right;
             MessageToolStripStatusLabel.Name = "MessageToolStripStatusLabel";
             MessageToolStripStatusLabel.Size = new Size(260, 17);
             MessageToolStripStatusLabel.Text = "toolStripStatusLabel1";
@@ -537,12 +495,20 @@
             // capsToolStripStatusLabel
             // 
             capsToolStripStatusLabel.AutoSize = false;
-            capsToolStripStatusLabel.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
-            capsToolStripStatusLabel.BorderStyle = Border3DStyle.Sunken;
+            capsToolStripStatusLabel.BorderSides = ToolStripStatusLabelBorderSides.Right;
             capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
-            capsToolStripStatusLabel.Size = new Size(80, 17);
+            capsToolStripStatusLabel.Size = new Size(90, 17);
             capsToolStripStatusLabel.Text = "CAPS ON";
             capsToolStripStatusLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // status
+            // 
+            status.AutoSize = false;
+            status.BorderSides = ToolStripStatusLabelBorderSides.Right;
+            status.Name = "status";
+            status.Size = new Size(80, 17);
+            status.Text = "Ln 1, Col 1";
+            status.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // rtbTextArea
             // 
@@ -555,6 +521,7 @@
             rtbTextArea.Size = new Size(946, 439);
             rtbTextArea.TabIndex = 0;
             rtbTextArea.Text = "";
+            rtbTextArea.SelectionChanged += rtbTextArea_SelectionChanged;
             rtbTextArea.TextChanged += rtbTextArea_TextChanged;
             rtbTextArea.KeyDown += rtbTextArea_KeyDown;
             // 
@@ -945,8 +912,8 @@
             toolStripContainer1.TopToolStripPanel.PerformLayout();
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
+            statusContent.ResumeLayout(false);
+            statusContent.PerformLayout();
             contextMenuStrip1.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
@@ -963,7 +930,7 @@
         private ToolStripMenuItem viewMenuItem;
         private ToolStripMenuItem helpMenuItem;
         private ToolStripContainer toolStripContainer1;
-        private StatusStrip statusStrip1;
+        private StatusStrip statusContent;
         private RichTextBox rtbTextArea;
         private ToolStrip toolStrip1;
         private ToolStripMenuItem newFileMenuItem;
@@ -979,16 +946,12 @@
         private ToolStripMenuItem copyEditMenuItem;
         private ToolStripMenuItem pasteEditMenuItem;
         private ToolStripMenuItem deleteEditMenuItem;
-        private ToolStripMenuItem findEditMenuItem;
-        private ToolStripMenuItem findNextEditMenuItem;
-        private ToolStripMenuItem replaceEditMenuItem;
         private ToolStripMenuItem goToEditMenuItem;
         private ToolStripMenuItem selectAllEditMenuItem;
         private ToolStripMenuItem timeDateEditMenuItem;
         private ToolStripMenuItem wordWrapFormatMenuItem;
         private ToolStripMenuItem fontFormatMenuItem;
         private ToolStripMenuItem statusBarViewMenuItem;
-        private ToolStripMenuItem viewHelpMenuItem;
         private ToolStripMenuItem aboutNotepadMenuItem;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripSeparator toolStripSeparator4;
@@ -1037,9 +1000,7 @@
         private ToolStripSeparator toolStripSeparator13;
         private ToolStripButton fontFormatToolStrip;
         private ToolStripButton textColorToolStrip;
-        private ToolStripMenuItem boldToolStripMenuItem1;
         private ToolStripStatusLabel MessageToolStripStatusLabel;
-        private ToolStripStatusLabel capsToolStripStatusLabel;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem boldContextMenuItem;
         private ToolStripMenuItem italicContextMenuItem;
@@ -1054,5 +1015,7 @@
         private ToolStripSeparator toolStripSeparator16;
         private ToolStripSeparator toolStripSeparator15;
         private ToolStripMenuItem deleteContextMenuItem;
+        private ToolStripStatusLabel status;
+        private ToolStripStatusLabel capsToolStripStatusLabel;
     }
 }
