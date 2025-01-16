@@ -84,7 +84,7 @@
             cutContextMenuItem = new ToolStripMenuItem();
             copyContextMenuItem = new ToolStripMenuItem();
             pasteContextMenuItem = new ToolStripMenuItem();
-            deleteToolStripMenuItem = new ToolStripMenuItem();
+            deleteContextMenuItem = new ToolStripMenuItem();
             toolStripSeparator14 = new ToolStripSeparator();
             boldContextMenuItem = new ToolStripMenuItem();
             italicContextMenuItem = new ToolStripMenuItem();
@@ -239,6 +239,7 @@
             editMenuItem.Name = "editMenuItem";
             editMenuItem.Size = new Size(39, 20);
             editMenuItem.Text = "&Edit";
+            editMenuItem.Click += editMenuItem_Click;
             // 
             // undoEditMenuItem
             // 
@@ -267,6 +268,7 @@
             // 
             // cutEditMenuItem
             // 
+            cutEditMenuItem.Enabled = false;
             cutEditMenuItem.Image = Properties.Resources.cut_red;
             cutEditMenuItem.Name = "cutEditMenuItem";
             cutEditMenuItem.ShortcutKeys = Keys.Control | Keys.X;
@@ -276,6 +278,7 @@
             // 
             // copyEditMenuItem
             // 
+            copyEditMenuItem.Enabled = false;
             copyEditMenuItem.Image = Properties.Resources.copy;
             copyEditMenuItem.Name = "copyEditMenuItem";
             copyEditMenuItem.ShortcutKeys = Keys.Control | Keys.C;
@@ -285,6 +288,7 @@
             // 
             // pasteEditMenuItem
             // 
+            pasteEditMenuItem.Enabled = false;
             pasteEditMenuItem.Image = Properties.Resources.paste;
             pasteEditMenuItem.Name = "pasteEditMenuItem";
             pasteEditMenuItem.ShortcutKeys = Keys.Control | Keys.V;
@@ -294,6 +298,7 @@
             // 
             // deleteEditMenuItem
             // 
+            deleteEditMenuItem.Enabled = false;
             deleteEditMenuItem.Image = Properties.Resources.delete;
             deleteEditMenuItem.Name = "deleteEditMenuItem";
             deleteEditMenuItem.ShortcutKeys = Keys.Delete;
@@ -554,12 +559,14 @@
             // 
             // contextMenuStrip1
             // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { cutContextMenuItem, copyContextMenuItem, pasteContextMenuItem, deleteToolStripMenuItem, toolStripSeparator14, boldContextMenuItem, italicContextMenuItem, normalContextMenuItem, toolStripSeparator16, underlineContextMenuItem, strikethroughContextMenuItem, toolStripSeparator15, printContextMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { cutContextMenuItem, copyContextMenuItem, pasteContextMenuItem, deleteContextMenuItem, toolStripSeparator14, boldContextMenuItem, italicContextMenuItem, normalContextMenuItem, toolStripSeparator16, underlineContextMenuItem, strikethroughContextMenuItem, toolStripSeparator15, printContextMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 264);
+            contextMenuStrip1.Size = new Size(147, 242);
+            contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // cutContextMenuItem
             // 
+            cutContextMenuItem.Enabled = false;
             cutContextMenuItem.Image = Properties.Resources.cut_red;
             cutContextMenuItem.Name = "cutContextMenuItem";
             cutContextMenuItem.Size = new Size(146, 22);
@@ -568,6 +575,7 @@
             // 
             // copyContextMenuItem
             // 
+            copyContextMenuItem.Enabled = false;
             copyContextMenuItem.Image = Properties.Resources.copy;
             copyContextMenuItem.Name = "copyContextMenuItem";
             copyContextMenuItem.Size = new Size(146, 22);
@@ -576,19 +584,21 @@
             // 
             // pasteContextMenuItem
             // 
+            pasteContextMenuItem.Enabled = false;
             pasteContextMenuItem.Image = Properties.Resources.paste;
             pasteContextMenuItem.Name = "pasteContextMenuItem";
             pasteContextMenuItem.Size = new Size(146, 22);
             pasteContextMenuItem.Text = "&Paste";
             pasteContextMenuItem.Click += pasteContextMenuItem_Click;
             // 
-            // deleteToolStripMenuItem
+            // deleteContextMenuItem
             // 
-            deleteToolStripMenuItem.Image = Properties.Resources.delete;
-            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(180, 22);
-            deleteToolStripMenuItem.Text = "&Delete";
-            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            deleteContextMenuItem.Enabled = false;
+            deleteContextMenuItem.Image = Properties.Resources.delete;
+            deleteContextMenuItem.Name = "deleteContextMenuItem";
+            deleteContextMenuItem.Size = new Size(146, 22);
+            deleteContextMenuItem.Text = "&Delete";
+            deleteContextMenuItem.Click += deleteContextMenuItem_Click;
             // 
             // toolStripSeparator14
             // 
@@ -1042,6 +1052,6 @@
         private ToolStripMenuItem printContextMenuItem;
         private ToolStripSeparator toolStripSeparator16;
         private ToolStripSeparator toolStripSeparator15;
-        private ToolStripMenuItem deleteToolStripMenuItem;
+        private ToolStripMenuItem deleteContextMenuItem;
     }
 }

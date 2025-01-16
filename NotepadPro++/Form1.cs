@@ -465,19 +465,22 @@ namespace NotepadPro__
         //Implemented : "Cut" Feature of ToolStrip
         private void cutToolStrip_Click(object sender, EventArgs e)
         {
-            cutEditMenuItem.PerformClick();
+            
+            CutMethod();
         }
 
         //Implemented : "Copy" Feature of ToolStrip
         private void copyToolStrip_Click(object sender, EventArgs e)
         {
-            copyEditMenuItem.PerformClick();
+            
+            CopyMethod();
         }
 
         //Implemented : "Paste" Feature of ToolStrip
         private void pasteToolStrip_Click(object sender, EventArgs e)
         {
-            pasteEditMenuItem.PerformClick();
+            
+            PasteMethod();
         }
 
         //Implemented : "Text Bold" Feature of ToolStrip
@@ -573,6 +576,11 @@ namespace NotepadPro__
         //Cut Features of EditMenu Strip
         private void cutEditMenuItem_Click(object sender, EventArgs e)
         {
+            CutMethod();
+        }
+
+        private void CutMethod()
+        {
             if (rtbTextArea.SelectionLength > 0)
             {
                 Clipboard.SetText(rtbTextArea.SelectedText);
@@ -583,6 +591,11 @@ namespace NotepadPro__
         //Copy Features of EditMenu Strip
         private void copyEditMenuItem_Click(object sender, EventArgs e)
         {
+            CopyMethod();
+        }
+
+        private void CopyMethod()
+        {
             if (rtbTextArea.SelectionLength > 0)
             {
                 Clipboard.SetText(rtbTextArea.SelectedText);
@@ -591,6 +604,11 @@ namespace NotepadPro__
 
         //Paste Features of EditMenu Strip
         private void pasteEditMenuItem_Click(object sender, EventArgs e)
+        {
+            PasteMethod();
+        }
+
+        private void PasteMethod()
         {
             if (Clipboard.ContainsText())
             {
@@ -601,23 +619,28 @@ namespace NotepadPro__
         //Cut feature of ContextMenu Item
         private void cutContextMenuItem_Click(object sender, EventArgs e)
         {
-            cutEditMenuItem.PerformClick();
+            CutMethod();
         }
 
         //Copy feature of ContextMenu Item
         private void copyContextMenuItem_Click(object sender, EventArgs e)
         {
-            copyEditMenuItem.PerformClick();
+            CopyMethod();
         }
 
         //Paste feature of ContextMenu Item
         private void pasteContextMenuItem_Click(object sender, EventArgs e)
         {
-            pasteEditMenuItem.PerformClick();
+            PasteMethod();
         }
 
         //Delete Features of EditMenu Strip
         private void deleteEditMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteMethod();
+        }
+
+        private void DeleteMethod()
         {
             if (rtbTextArea.SelectionLength > 0)
             {
@@ -628,13 +651,32 @@ namespace NotepadPro__
         //Implemented : "Text Delete" Feature of ToolStrip
         private void deleteToolStrip_Click(object sender, EventArgs e)
         {
-            deleteEditMenuItem.PerformClick();
+            deleteToolStrip.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            DeleteMethod();
         }
 
         //Delete feature of ContextMenu Item
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteContextMenuItem_Click(object sender, EventArgs e)
         {
-            deleteEditMenuItem.PerformClick();
+            DeleteMethod();
+        }
+
+        //Implementing: Enable OR Disable Cut,Copy,Delete,Paste Feature for Edit Menu
+        private void editMenuItem_Click(object sender, EventArgs e)
+        {
+            cutEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            copyEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            deleteEditMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            pasteEditMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Text);
+        }
+
+        //Implementing: Enable OR Disable Cut,Copy,Delete,Paste Feature for Context Menu
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            cutContextMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            copyContextMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            deleteContextMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
+            pasteContextMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Text);
         }
     }
 }
