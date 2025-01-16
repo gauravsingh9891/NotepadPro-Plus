@@ -4,6 +4,7 @@ using System.Text;
 using static System.Windows.Forms.LinkLabel;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Microsoft.VisualBasic;
 
 namespace NotepadPro__
 {
@@ -465,21 +466,21 @@ namespace NotepadPro__
         //Implemented : "Cut" Feature of ToolStrip
         private void cutToolStrip_Click(object sender, EventArgs e)
         {
-            
+
             CutMethod();
         }
 
         //Implemented : "Copy" Feature of ToolStrip
         private void copyToolStrip_Click(object sender, EventArgs e)
         {
-            
+
             CopyMethod();
         }
 
         //Implemented : "Paste" Feature of ToolStrip
         private void pasteToolStrip_Click(object sender, EventArgs e)
         {
-            
+
             PasteMethod();
         }
 
@@ -677,6 +678,35 @@ namespace NotepadPro__
             copyContextMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
             deleteContextMenuItem.Enabled = rtbTextArea.SelectedText.Length > 0 ? true : false;
             pasteContextMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Text);
+        }
+
+        //GoTo Line no Feature of EditMenu Strip
+        private void goToEditMenuItem_Click(object sender, EventArgs e)
+        {
+            string input = Interaction.InputBox("Line Number", "Go To", "1");
+            try
+            {
+                int line = Convert.ToInt32(input);
+                if(line>rtbTextArea.Lines.Length)
+                {
+                    MessageBox.Show("Total line in the file is "+rtbTextArea.Lines,"Can't Reach",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string[] lines = rtbTextArea.Lines;
+                    int len = 0;
+                    for(int i = 0; i < line - 1; i++)
+                    {
+                        len += lines[i].Length+1;
+                    }
+                    rtbTextArea.Focus();
+                    rtbTextArea.Select(len, 0);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Enter a valid Integer","Wrong Input",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
     }
 }
