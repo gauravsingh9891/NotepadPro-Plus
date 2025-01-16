@@ -39,8 +39,8 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.note__2_;
-            pictureBox1.Location = new Point(192, 12);
+            pictureBox1.Image = Properties.Resources.noteNewLogo;
+            pictureBox1.Location = new Point(193, 13);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(43, 41);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;

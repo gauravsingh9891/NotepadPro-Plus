@@ -51,10 +51,10 @@
             pasteEditMenuItem = new ToolStripMenuItem();
             deleteEditMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
-            goToEditMenuItem = new ToolStripMenuItem();
-            toolStripSeparator5 = new ToolStripSeparator();
             selectAllEditMenuItem = new ToolStripMenuItem();
             timeDateEditMenuItem = new ToolStripMenuItem();
+            toolStripSeparator5 = new ToolStripSeparator();
+            goToEditMenuItem = new ToolStripMenuItem();
             formatMenuItem = new ToolStripMenuItem();
             fontFormatMenuItem = new ToolStripMenuItem();
             changeTextColorToolStripMenuItem = new ToolStripMenuItem();
@@ -307,19 +307,6 @@
             toolStripSeparator4.Name = "toolStripSeparator4";
             toolStripSeparator4.Size = new Size(177, 6);
             // 
-            // goToEditMenuItem
-            // 
-            goToEditMenuItem.Name = "goToEditMenuItem";
-            goToEditMenuItem.ShortcutKeys = Keys.Control | Keys.G;
-            goToEditMenuItem.Size = new Size(180, 22);
-            goToEditMenuItem.Text = "Go To...";
-            goToEditMenuItem.Click += goToEditMenuItem_Click;
-            // 
-            // toolStripSeparator5
-            // 
-            toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(177, 6);
-            // 
             // selectAllEditMenuItem
             // 
             selectAllEditMenuItem.Image = Properties.Resources.Select_all;
@@ -337,6 +324,19 @@
             timeDateEditMenuItem.Size = new Size(180, 22);
             timeDateEditMenuItem.Text = "Time/Date";
             timeDateEditMenuItem.Click += timeDateEditMenuItem_Click;
+            // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(177, 6);
+            // 
+            // goToEditMenuItem
+            // 
+            goToEditMenuItem.Name = "goToEditMenuItem";
+            goToEditMenuItem.ShortcutKeys = Keys.Control | Keys.G;
+            goToEditMenuItem.Size = new Size(180, 22);
+            goToEditMenuItem.Text = "Go To...";
+            goToEditMenuItem.Click += goToEditMenuItem_Click;
             // 
             // formatMenuItem
             // 
@@ -433,7 +433,7 @@
             // 
             statusBarViewMenuItem.CheckOnClick = true;
             statusBarViewMenuItem.Name = "statusBarViewMenuItem";
-            statusBarViewMenuItem.Size = new Size(126, 22);
+            statusBarViewMenuItem.Size = new Size(180, 22);
             statusBarViewMenuItem.Text = "Status Bar";
             statusBarViewMenuItem.CheckedChanged += statusBarViewMenuItem_CheckedChanged;
             // 
